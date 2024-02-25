@@ -111,8 +111,11 @@ body {
   padding-top: 15px;
   margin: 0 auto;
   max-width: 450px;
+  height: 100%;
+  max-height: 525px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 40px;
 }
 .main .content .text h2 {
@@ -124,6 +127,7 @@ body {
   margin-block-start: 0rem;
 }
 .main .content .form {
+  margin-bottom: auto;
   font-weight: 500;
 }
 .main .content .form label {
@@ -159,10 +163,13 @@ body {
   height: 40px;
 }
 .main .content .cta {
+  background-color: pink;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 .main .content .cta button {
+  margin-left: auto;
   width: 125px;
   height: 50px;
   border-radius: 8px;

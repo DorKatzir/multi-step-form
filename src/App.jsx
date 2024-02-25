@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function App() {
+  const [userInfo, setUserInfo] = useState({
+                                    name: 'dror',
+                                    email: 'dror@gmail.com',
+                                    phone: '123456',
+                                    }) 
+
   const [step, setStep] = useState(1)
   const [stepCounter, setStepCounter] = useState(1)
-  
+
 
   return (
 		<>
@@ -27,7 +33,7 @@ export default function App() {
   )
 }
 
-
+// SIDEBAR ///////////////////////////////////////////////
 function Sidebar({stepCounter}) {
   return (
 		<div className='sidebar'>
@@ -68,6 +74,7 @@ function Sidebar({stepCounter}) {
   )
 }
 
+// STEP 1  //////////////////////////////////////////////
 function StepOne({onSetStep, onStepCounter}) {
 
   function handleNextStep(){
@@ -83,7 +90,7 @@ function StepOne({onSetStep, onStepCounter}) {
         <p>Please provide your name, email address, and phone number.</p>
       </div>
 
-      <form className="form">
+      <div className="form">
 
         <div className="name">
           <label>Name</label>
@@ -100,7 +107,7 @@ function StepOne({onSetStep, onStepCounter}) {
           <input type="text" name="" id="" placeholder="e.g. +1 234 567 890"/>
         </div>
 
-      </form>
+      </div>
 
       <div className="cta">
         <button onClick={handleNextStep} >Next Step</button>
@@ -110,13 +117,48 @@ function StepOne({onSetStep, onStepCounter}) {
   )
 }
 
+// STEP 2 //////////////////////////////////////////////
 function StepTwo() {
-  return (
-    <div>
-      Step 2 - Select Plan
-    </div>
-  )
+
+	return (
+		<>
+			<div className='text'>
+				<h2>Select your plan</h2>
+				<p>You have the option of monthly or yearly billing.</p>
+			</div>
+
+			<div className='form'>
+				<div className='name'>
+					{/*  */}
+				</div>
+
+				<div className='email'>
+					{/*  */}
+				</div>
+
+				<div className='phone'>
+					{/*  */}
+				</div>
+			</div>
+
+			<div className='cta'>
+        <a href="./">Go Back</a>
+				<button onClick=''>Next Step</button>
+			</div>
+		</>
+	)
 }
+
+
+
+
+
+
+
+
+
+
+
 function StepThree() {
   return (
     <div>
