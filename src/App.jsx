@@ -1,15 +1,25 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function App() {
-  const [userInfo, setUserInfo] = useState({
-                                    name: 'dror',
-                                    email: 'dror@gmail.com',
-                                    phone: '123456',
-                                    }) 
+  // const [userInfo, setUserInfo] = useState({
+  //                                   name: 'dror',
+  //                                   email: 'dror@gmail.com',
+  //                                   phone: '123456',
+  //                                   }) 
 
   const [step, setStep] = useState(1)
   const [stepCounter, setStepCounter] = useState(1)
+
+  function handleNextStep(){
+    setStep(step => step + 1)
+    setStepCounter(counter => counter + 1)
+  }
+
+  function handlePrevStep(){
+    setStep(step => step - 1)
+    setStepCounter(counter => counter - 1)
+  }
 
 
   return (
@@ -19,10 +29,21 @@ export default function App() {
 				<div className='main'>
 					<div className='content'>
 
-						{ step === 1 ? <StepOne onSetStep={setStep} onStepCounter={setStepCounter}/> : null }
-						{ step === 2 ? <StepTwo onSetStep={setStep}/> : null }
-						{ step === 3 ? <StepThree onSetStep={setStep}/> : null }
-						{ step === 4 ? <StepFour onSetStep={setStep}/> : null }
+						{ step === 1 ? 
+                <StepOne onNextStep={handleNextStep}/> 
+              : null }
+
+						{ step === 2 ? 
+                <StepTwo onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              : null }
+
+						{ step === 3 ? 
+                <StepThree onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              : null }
+
+						{ step === 4 ? 
+              <StepFour onPrevStep={handlePrevStep} /> 
+              : null }
 
 					</div>
 				</div>
@@ -75,50 +96,57 @@ function Sidebar({stepCounter}) {
 }
 
 // STEP 1  //////////////////////////////////////////////
-function StepOne({onSetStep, onStepCounter}) {
-
-  function handleNextStep(){
-    onSetStep(step => step + 1)
-    onStepCounter(counter => counter + 1)
-  }
-
-  return (
+function StepOne({ onNextStep }) {
+	return (
 		<>
+			<div className='text'>
+				<h2>Personal info</h2>
+				<p>
+					Please provide your name, email address, and phone number.
+				</p>
+			</div>
 
-      <div className="text">
-        <h2>Personal info</h2>
-        <p>Please provide your name, email address, and phone number.</p>
-      </div>
+			<div className='form'>
+				<div className='name'>
+					<label>Name</label>
+					<input
+						type='text'
+						name=''
+						id=''
+						placeholder='e.g. Stephen King'
+					/>
+				</div>
 
-      <div className="form">
+				<div className='email'>
+					<label>Email Address</label>
+					<input
+						type='text'
+						name=''
+						id=''
+						placeholder='e.g. stephenking@lorem.com'
+					/>
+				</div>
 
-        <div className="name">
-          <label>Name</label>
-          <input type="text" name="" id="" placeholder="e.g. Stephen King"/>
-        </div>
+				<div className='phone'>
+					<label>Phone Number</label>
+					<input
+						type='text'
+						name=''
+						id=''
+						placeholder='e.g. +1 234 567 890'
+					/>
+				</div>
+			</div>
 
-        <div className="email">
-          <label>Email Address</label>
-          <input type="text" name="" id="" placeholder="e.g. stephenking@lorem.com"/>
-        </div>
-
-        <div className="phone">
-          <label>Phone Number</label>
-          <input type="text" name="" id="" placeholder="e.g. +1 234 567 890"/>
-        </div>
-
-      </div>
-
-      <div className="cta">
-        <button onClick={handleNextStep} >Next Step</button>
-      </div>
-
+			<div className='cta'>
+				<button onClick={onNextStep}>Next Step</button>
+			</div>
 		</>
-  )
+	)
 }
 
 // STEP 2 //////////////////////////////////////////////
-function StepTwo() {
+function StepTwo({onNextStep, onPrevStep}) {
 
 	return (
 		<>
@@ -142,8 +170,65 @@ function StepTwo() {
 			</div>
 
 			<div className='cta'>
-        <a href="./">Go Back</a>
-				<button onClick=''>Next Step</button>
+        <span className='back-btn'><a onClick={onPrevStep}>Go Back</a></span>
+				<button onClick={onNextStep}>Next Step</button>
+			</div>
+		</>
+	)
+}
+
+// STEP 3 //////////////////////////////////////////////
+function StepThree({onNextStep, onPrevStep}) {
+
+	return (
+		<>
+			<div className='text'>
+				<h2>Pick add-ons</h2>
+				<p>Add-ons help enhance your gaming experience.</p>
+			</div>
+
+			<div className='form'>
+				<div className='name'>{/*  */}</div>
+
+				<div className='email'>{/*  */}</div>
+
+				<div className='phone'>{/*  */}</div>
+			</div>
+
+			<div className='cta'>
+				<span className='back-btn'>
+					<a onClick={onPrevStep}>Go Back</a>
+				</span>
+				<button onClick={onNextStep}>Next Step</button>
+			</div>
+		</>
+	)
+}
+
+
+// STEP 4 //////////////////////////////////////////////
+function StepFour({onPrevStep}) {
+
+	return (
+		<>
+			<div className='text'>
+				<h2>Finishing up</h2>
+				<p>Double-check everything looks OK before confirming.</p>
+			</div>
+
+			<div className='form'>
+				<div className='name'>{/*  */}</div>
+
+				<div className='email'>{/*  */}</div>
+
+				<div className='phone'>{/*  */}</div>
+			</div>
+
+			<div className='cta'>
+				<span className='back-btn'>
+					<a onClick={onPrevStep}>Go Back</a>
+				</span>
+				<button>Submit</button>
 			</div>
 		</>
 	)
@@ -151,28 +236,6 @@ function StepTwo() {
 
 
 
-
-
-
-
-
-
-
-
-function StepThree() {
-  return (
-    <div>
-      Step 3 - Add-ons
-    </div>
-  )
-}
-function StepFour() {
-  return (
-    <div>
-      Step 4 - Summry
-    </div>
-  )
-}
 
 
 

@@ -180,11 +180,13 @@ body{
         }
         
         .cta{
-            // flex: 1;
-            background-color: pink;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .back-btn{
+                cursor: pointer;
+            }
                         
             button{
                 margin-left: auto;

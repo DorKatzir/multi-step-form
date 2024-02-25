@@ -163,10 +163,12 @@ body {
   height: 40px;
 }
 .main .content .cta {
-  background-color: pink;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.main .content .cta .back-btn {
+  cursor: pointer;
 }
 .main .content .cta button {
   margin-left: auto;
