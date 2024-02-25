@@ -4,6 +4,7 @@ import iconArcade from './assets/images/icon-arcade.svg'
 import iconAdvanced from './assets/images/icon-advanced.svg'
 import iconPro from './assets/images/icon-pro.svg'
 
+
 export default function App() {
   // const [userInfo, setUserInfo] = useState({
   //                                   name: 'dror',
@@ -161,25 +162,36 @@ function StepTwo({onNextStep, onPrevStep}) {
 			<div className='plan-wrapper'>
 				<div className='plan-cards'>
 					<div className='card'>
-						<div className='icon'><img src={iconArcade} alt="icon arcade" /></div>
+						<div className='icon'>
+							<img src={iconArcade} alt='icon arcade' />
+						</div>
 						<div className='text'>Arcade</div>
 						<div className='price'>$9/mo</div>
 					</div>
 					<div className='card'>
-						<div className='icon'><img src={iconAdvanced} alt="icon advanced" /></div>
+						<div className='icon'>
+							<img src={iconAdvanced} alt='icon advanced' />
+						</div>
 						<div className='text'>Advanced</div>
 						<div className='price'>$12/mo</div>
 					</div>
 					<div className='card'>
-						<div className='icon'><img src={iconPro} alt="icon pro" /></div>
+						<div className='icon'>
+							<img src={iconPro} alt='icon pro' />
+						</div>
 						<div className='text'>Pro</div>
 						<div className='price'>$15/mo</div>
 					</div>
 				</div>
 				<div className='plan'>
-					<span>Monthly</span>
-					<span>switch-btn</span>
-					<span>Yearly</span>
+					<span className='blue'>Monthly</span>
+					<span>
+						<label className='switch'>
+							<input type='checkbox' />
+							<span className='slider round'></span>
+						</label>
+					</span>
+					<span className=''>Yearly</span>
 				</div>
 			</div>
 
