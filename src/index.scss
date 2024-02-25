@@ -133,10 +133,12 @@ body{
             h2{
                 color: var(--Marine-blue);
                 margin-block-end: .6rem;
+                font-size: 2rem;
             }
             p{
                 color: var(--Cool-gray);
                 margin-block-start: 0rem;
+                font-weight: 500;
             }
         }
 
@@ -185,6 +187,8 @@ body{
 
             .back-btn{
                 cursor: pointer;
+                color: var(--Cool-gray);
+                font-weight: 500;
             }
                         
             button{
@@ -261,6 +265,26 @@ body{
                 }
             }
 
+        }
+
+        .add-ons-wrapper{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            
+            .card{
+                padding: 1rem;
+                border: 1px solid var(--Light-gray);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                .price{
+                    margin-left: auto;
+                }
+            }
         }
 
     }

@@ -215,12 +215,43 @@ function StepThree({onNextStep, onPrevStep}) {
 				<p>Add-ons help enhance your gaming experience.</p>
 			</div>
 
-			<div className='form'>
-				<div className='name'>{/*  */}</div>
+			<div className='add-ons-wrapper'>
+				<div className='card'>
+					<label className=''>
+						<input type='checkbox' checked='checked' />
+						<span className='checkmark'></span>
+					</label>
+					<div className='text'>
+						Online service <br />
+						Access to multiplayer games
+					</div>
+					<div className='price'>+$1/mo</div>
+				</div>
 
-				<div className='email'>{/*  */}</div>
+				<div className='card'>
+					<label className=''>
+						<input type='checkbox' checked='checked' />
+						<span className='checkmark'></span>
+					</label>
+					<div className='text'>
+						Larger storage
+						<br />
+						Extra 1TB of cloud save
+					</div>
+					<div className='price'>+$2/mo</div>
+				</div>
 
-				<div className='phone'>{/*  */}</div>
+				<div className='card'>
+					<label className=''>
+						<input type='checkbox' checked='checked' />
+						<span className='checkmark'></span>
+					</label>
+					<div className='text'>
+						Customizable Profile <br />
+						Custom theme on your profile
+					</div>
+					<div className='price'>+$2/mo</div>
+				</div>
 			</div>
 
 			<div className='cta'>
