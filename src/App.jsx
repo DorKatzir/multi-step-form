@@ -155,22 +155,35 @@ function StepTwo({onNextStep, onPrevStep}) {
 				<p>You have the option of monthly or yearly billing.</p>
 			</div>
 
-			<div className='form'>
-				<div className='name'>
-					{/*  */}
+			<div className='plan-wrapper'>
+				<div className='plan-cards'>
+					<div className='card'>
+						<div className='icon'><img src="./src/assets/images/icon-arcade.svg" alt="" /></div>
+						<div className='text'>Arcade</div>
+						<div className='price'>$9/mo</div>
+					</div>
+					<div className='card'>
+						<div className='icon'><img src="./src/assets/images/icon-advanced.svg" alt="" /></div>
+						<div className='text'>Advanced</div>
+						<div className='price'>$12/mo</div>
+					</div>
+					<div className='card'>
+						<div className='icon'><img src="./src/assets/images/icon-pro.svg" alt="" /></div>
+						<div className='text'>Pro</div>
+						<div className='price'>$15/mo</div>
+					</div>
 				</div>
-
-				<div className='email'>
-					{/*  */}
-				</div>
-
-				<div className='phone'>
-					{/*  */}
+				<div className='plan'>
+					<span>Monthly</span>
+					<span>switch-btn</span>
+					<span>Yearly</span>
 				</div>
 			</div>
 
 			<div className='cta'>
-        <span className='back-btn'><a onClick={onPrevStep}>Go Back</a></span>
+				<span className='back-btn'>
+					<a onClick={onPrevStep}>Go Back</a>
+				</span>
 				<button onClick={onNextStep}>Next Step</button>
 			</div>
 		</>

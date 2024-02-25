@@ -54,11 +54,12 @@ body {
 .sidebar {
   width: 100%;
   max-width: 275px;
+  min-width: 225px;
   height: 568px;
   border-radius: 10px;
   background-image: url(./assets/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .step {
@@ -184,6 +185,60 @@ body {
 }
 .main .content .cta button:hover {
   background-color: #174A89;
+}
+.main .content .plan-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+.main .content .plan-wrapper .plan-cards {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.main .content .plan-wrapper .plan-cards .card {
+  flex: 1;
+  max-width: 135px;
+  height: 160px;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--Light-gray);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main .content .plan-wrapper .plan-cards .card:hover, .main .content .plan-wrapper .plan-cards .card :focus-visible {
+  background-color: var(--Magnolia);
+  border-color: var(--Marine-blue);
+}
+.main .content .plan-wrapper .plan-cards .card .icon {
+  margin-bottom: auto;
+}
+.main .content .plan-wrapper .plan-cards .card .text {
+  color: var(--Marine-blue);
+  font-weight: 700;
+  font-size: 18px;
+}
+.main .content .plan-wrapper .plan-cards .card .price {
+  color: var(--Cool-gray);
+  font-weight: 700;
+  font-size: 14px;
+}
+.main .content .plan-wrapper .plan {
+  background-color: var(--Magnolia);
+  border-radius: 8px;
+  height: 50px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.main .content .plan-wrapper .plan span {
+  font-weight: 700;
+  color: var(--Cool-gray);
 }
 
 .attribution {
