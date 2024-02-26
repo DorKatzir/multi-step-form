@@ -57,6 +57,8 @@ body{
 
 
 .sidebar{
+    padding-inline: 32px;
+    padding-block-start: 40px;
     width: 100%;
     max-width: 275px;
     min-width: 225px;
@@ -65,15 +67,15 @@ body{
     background-image: url(./assets/images/bg-sidebar-desktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .step{
     display: flex;
-
     align-items: center;
     gap: 1rem;
-    padding-left: 32px;
-    padding-top: 40px;
 
     .step_number{
         // background-color: var(--Light-blue);
