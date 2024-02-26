@@ -1,10 +1,12 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import iconArcade from './assets/images/icon-arcade.svg'
 import iconAdvanced from './assets/images/icon-advanced.svg'
 import iconPro from './assets/images/icon-pro.svg'
+import iconThankYou from './assets/images/icon-thank-you.svg'
 
-
+// PARENT APP ////////////////////////////////////////////
 export default function App() {
   // const [userInfo, setUserInfo] = useState({
   //                                   name: 'dror',
@@ -46,7 +48,11 @@ export default function App() {
               : null }
 
 						{ step === 4 ? 
-              <StepFour onPrevStep={handlePrevStep} /> 
+              <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              : null }
+
+						{ step === 5 ? 
+              <StepFive /> 
               : null }
 
 					</div>
@@ -88,7 +94,7 @@ function Sidebar({stepCounter}) {
 			</div>
 
 			<div className='step'>
-				<span className={ (stepCounter === 4) ? 'step_number active' : 'step_number' }>4</span>
+				<span className={ (stepCounter === 4 || stepCounter === 5) ? 'step_number active' : 'step_number' }>4</span>
 				<span className='step_box'>
 					<span className='title'>Step 4</span>
 					<span className='text'>Summary</span>
@@ -263,9 +269,8 @@ function StepThree({onNextStep, onPrevStep}) {
 	)
 }
 
-
 // STEP 4 //////////////////////////////////////////////
-function StepFour({onPrevStep}) {
+function StepFour({onNextStep, onPrevStep}) {
 
 	return (
 		<>
@@ -305,7 +310,28 @@ function StepFour({onPrevStep}) {
 				<span className='back-btn'>
 					<a onClick={onPrevStep}>Go Back</a>
 				</span>
-				<button className='confirm-btn'>Confirm</button>
+				<button onClick={onNextStep} className='confirm-btn'>Confirm</button>
+			</div>
+		</>
+	)
+}
+
+// STEP 5 //////////////////////////////////////////////
+function StepFive() {
+
+	return (
+		<>
+			<div className='thank-you-wrapper'>
+        <div className="thank-you-icon">
+				  <img src={iconThankYou} alt='icon-thank-you'/>
+        </div>
+
+				<h2>Thank you!</h2>
+				<p>
+					Thanks for confirming your subscription! We hope you have
+					fun using our platform. If you ever need support, please
+					feel free to email us at support@loremgaming.com.
+				</p>
 			</div>
 		</>
 	)
