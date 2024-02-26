@@ -274,14 +274,14 @@ body{
             gap: 1rem;
             
             .card{
-                padding-inline: 1.5rem;
+                padding-inline: 25px;
                 padding-block: 1rem;
                 border: 1px solid var(--Light-gray);
                 border-radius: 8px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 1.5rem;
+                gap: 25px;
 
                 /* Customize the label (the container) */
                 .addon-check {
@@ -351,6 +351,7 @@ body{
                         color: var(--Marine-blue);
                         font-weight: 700;
                         font-size: 18px;
+                        margin-block-end: .3rem;
                     }
                     p{
                         margin: 0;
@@ -363,6 +364,7 @@ body{
                     margin-left: auto;
                     color: var(--Purplish-blue);
                     font-weight: 700;
+                    font-size: 14px;
                 }
             }
         }
