@@ -117,7 +117,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 40px;
+  gap: 25px;
 }
 .main .content .text h2 {
   color: var(--Marine-blue);
