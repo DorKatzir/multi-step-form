@@ -213,6 +213,12 @@ body{
                     background-color: #174A89;
                 }
             }
+            .confirm-btn{
+                background-color: var(--Purplish-blue);
+                &:hover{
+                    background-color: #938CFE;
+                }
+            }
         }
 
         .plan-wrapper{
@@ -386,11 +392,77 @@ body{
                 background-color: var(--Alabaster);
                 display: flex;
                 flex-direction: column;
-                gap: 25px;
+                gap: 12px;
+                max-height: 180px;
                 hr{
                     width: 100%;
-                    border-style: none;
-                    border-top: 1px solid var(--Light-gray);
+                    border-top: 1px solid var(--Magnolia);
+                }
+                .summary-plan{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    h4{
+                        margin: 0;
+                        color: var(--Marine-blue);
+                        font-size: 16px;
+                        font-weight: 700;
+                        span{
+                            color: var(--Cool-gray);
+                            font-size: 14px;
+                            font-weight: 400;
+                            text-decoration: underline;
+                            cursor: pointer;
+                            &:hover{
+                                color: var(--Purplish-blue);
+                            }
+                        }
+                    }
+                    .price{
+                        color: var(--Marine-blue);
+                        font-weight: 700;
+                    }
+                }
+                .summary-details{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    
+                    font-size: 14px;
+                    color: var(--Cool-gray);
+                    .service{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .service-price{
+                            color: var(--Marine-blue)
+                            
+                        }
+                    }
+                    .storage{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; 
+                        .storage-price{
+                            color: var(--Marine-blue);
+                        }
+                    }
+
+                }
+
+            }
+            .summary-total{
+                // background-color: pink;
+                padding: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 14px;
+                color: var(--Cool-gray);
+                .total-price{
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: var(--Purplish-blue);
                 }
             }
         }

@@ -198,6 +198,12 @@ body {
 .main .content .cta button:hover {
   background-color: #174A89;
 }
+.main .content .cta .confirm-btn {
+  background-color: var(--Purplish-blue);
+}
+.main .content .cta .confirm-btn:hover {
+  background-color: #938CFE;
+}
 .main .content .plan-wrapper {
   display: flex;
   flex-direction: column;
@@ -356,12 +362,73 @@ body {
   background-color: var(--Alabaster);
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 12px;
+  max-height: 180px;
 }
 .main .content .summary-wrapper .summary-content hr {
   width: 100%;
-  border-style: none;
-  border-top: 1px solid var(--Light-gray);
+  border-top: 1px solid var(--Magnolia);
+}
+.main .content .summary-wrapper .summary-content .summary-plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .content .summary-wrapper .summary-content .summary-plan h4 {
+  margin: 0;
+  color: var(--Marine-blue);
+  font-size: 16px;
+  font-weight: 700;
+}
+.main .content .summary-wrapper .summary-content .summary-plan h4 span {
+  color: var(--Cool-gray);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.main .content .summary-wrapper .summary-content .summary-plan h4 span:hover {
+  color: var(--Purplish-blue);
+}
+.main .content .summary-wrapper .summary-content .summary-plan .price {
+  color: var(--Marine-blue);
+  font-weight: 700;
+}
+.main .content .summary-wrapper .summary-content .summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--Cool-gray);
+}
+.main .content .summary-wrapper .summary-content .summary-details .service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .content .summary-wrapper .summary-content .summary-details .service .service-price {
+  color: var(--Marine-blue);
+}
+.main .content .summary-wrapper .summary-content .summary-details .storage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .content .summary-wrapper .summary-content .summary-details .storage .storage-price {
+  color: var(--Marine-blue);
+}
+.main .content .summary-wrapper .summary-total {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--Cool-gray);
+}
+.main .content .summary-wrapper .summary-total .total-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--Purplish-blue);
 }
 
 /** START Switch

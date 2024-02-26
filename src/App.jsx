@@ -275,38 +275,37 @@ function StepFour({onPrevStep}) {
 			</div>
 
 			<div className='summary-wrapper'>
-
-        <div className="summary-content">
-          <div className='summary-plan'>
-            <h4 className="plan">Arcade(Yearly) <br/> <span>(change)</span></h4>
-            <span className="price">$90/yr</span>  
-          </div>
-          <hr />
-          <div className='summary-details'>
-            <div className="service">
-              <span>Online service</span>
-              <span>+$10/y</span>
-            </div>
-            <div className="storage">
-              <span>Large storage</span>
-              <span>+$20/y</span>
-            </div>
-          </div>
-        </div>
+				<div className='summary-content'>
+					<div className='summary-plan'>
+						<h4 className='plan'>
+							Arcade(Yearly) <br /> <span>change</span>
+						</h4>
+						<span className='price'>$90/yr</span>
+					</div>
+					<hr />
+					<div className='summary-details'>
+						<div className='service'>
+							<span>Online service</span>
+							<span className='service-price'>+$10/yr</span>
+						</div>
+						<div className='storage'>
+							<span>Large storage</span>
+							<span className='storage-price'>+$20/yr</span>
+						</div>
+					</div>
+				</div>
 
 				<div className='summary-total'>
-          <span className="total">Total (per year)</span>
-          <span className="price">$120/yr</span>
-          
-        </div>
-
+					<span className='total-text'>Total (per year)</span>
+					<span className='total-price'>$120/yr</span>
+				</div>
 			</div>
 
 			<div className='cta'>
 				<span className='back-btn'>
 					<a onClick={onPrevStep}>Go Back</a>
 				</span>
-				<button>Confirm</button>
+				<button className='confirm-btn'>Confirm</button>
 			</div>
 		</>
 	)
