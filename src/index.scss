@@ -274,15 +274,95 @@ body{
             gap: 1rem;
             
             .card{
-                padding: 1rem;
+                padding-inline: 1.5rem;
+                padding-block: 1rem;
                 border: 1px solid var(--Light-gray);
                 border-radius: 8px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 1rem;
-                .price{
+                gap: 1.5rem;
+
+                /* Customize the label (the container) */
+                .addon-check {
+                    display: block;
+                    position: relative;
+                    padding-left: 20px;
+                    margin-bottom: 20px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    // -webkit-user-select: none;
+                    // -moz-user-select: none;
+                    // -ms-user-select: none;
+                    user-select: none;
+                    /* Hide the browser's default checkbox */
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                        /* When the checkbox is checked, add a blue background */
+                        &:checked ~ .checkmark {
+                            background-color: var(--Purplish-blue);
+                            border: none;
+                        }
+                        /* Show the checkmark when checked */
+                        &:checked ~ .checkmark:after {
+                            display: block;
+                        }
+
+                    }
+                    /* Create a custom checkbox */
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 20px;
+                        width: 20px;
+                        // background-color: red;
+                        border: 1px solid var(--Light-gray);
+                        border-radius: 5px;
+                        /* Create the checkmark/indicator (hidden when not checked) */
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                        }
+                        /* Style the checkmark/indicator */
+                        &:after {
+                            left: 7px;
+                            top: 4px;
+                            width: 6px;
+                            height: 10px;
+                            border: solid rgb(255, 255, 255);
+                            border-width: 0 2px 2px 0;
+                            // -webkit-transform: rotate(45deg);
+                            // -ms-transform: rotate(45deg);
+                            transform: rotate(40deg);
+                        }
+                    }
+
+                }
+
+                .addon-text{
+                    h3{
+                        margin: 0;
+                        color: var(--Marine-blue);
+                        font-weight: 700;
+                        font-size: 18px;
+                    }
+                    p{
+                        margin: 0;
+                        color: var(--Cool-gray);
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+                .addon-price{
                     margin-left: auto;
+                    color: var(--Purplish-blue);
+                    font-weight: 700;
                 }
             }
         }
@@ -347,6 +427,9 @@ input:checked + .slider:before {
 
 /**  END Switch
  -------------------------------------*/
+
+
+
 
 
 

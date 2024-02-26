@@ -217,40 +217,39 @@ function StepThree({onNextStep, onPrevStep}) {
 
 			<div className='add-ons-wrapper'>
 				<div className='card'>
-					<label className=''>
-						<input type='checkbox' checked='checked' />
+					<label className='addon-check'>
+						<input type='checkbox' />
 						<span className='checkmark'></span>
 					</label>
-					<div className='text'>
-						Online service <br />
-						Access to multiplayer games
+					<div className='addon-text'>
+						<h3>Online service</h3>
+						<p>Access to multiplayer games</p>
 					</div>
-					<div className='price'>+$1/mo</div>
+					<div className='addon-price'>+$1/mo</div>
 				</div>
 
 				<div className='card'>
-					<label className=''>
-						<input type='checkbox' checked='checked' />
+					<label className='addon-check'>
+						<input type='checkbox' />
 						<span className='checkmark'></span>
 					</label>
-					<div className='text'>
-						Larger storage
-						<br />
-						Extra 1TB of cloud save
+					<div className='addon-text'>
+            <h3>Larger storage</h3>
+						<p>Extra 1TB of cloud save</p>
 					</div>
-					<div className='price'>+$2/mo</div>
+					<div className='addon-price'>+$2/mo</div>
 				</div>
 
 				<div className='card'>
-					<label className=''>
-						<input type='checkbox' checked='checked' />
+					<label className='addon-check'>
+						<input type='checkbox' />
 						<span className='checkmark'></span>
 					</label>
-					<div className='text'>
-						Customizable Profile <br />
-						Custom theme on your profile
+					<div className='addon-text'>
+            <h3>Customizable Profile</h3>
+            <p>Custom theme on your profile</p>
 					</div>
-					<div className='price'>+$2/mo</div>
+					<div className='addon-price'>+$2/mo</div>
 				</div>
 			</div>
 

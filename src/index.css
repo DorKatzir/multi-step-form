@@ -254,16 +254,86 @@ body {
   gap: 1rem;
 }
 .main .content .add-ons-wrapper .card {
-  padding: 1rem;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
   border: 1px solid var(--Light-gray);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
+  /* Customize the label (the container) */
 }
-.main .content .add-ons-wrapper .card .price {
+.main .content .add-ons-wrapper .card .addon-check {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+}
+.main .content .add-ons-wrapper .card .addon-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  /* When the checkbox is checked, add a blue background */
+  /* Show the checkmark when checked */
+}
+.main .content .add-ons-wrapper .card .addon-check input:checked ~ .checkmark {
+  background-color: var(--Purplish-blue);
+  border: none;
+}
+.main .content .add-ons-wrapper .card .addon-check input:checked ~ .checkmark:after {
+  display: block;
+}
+.main .content .add-ons-wrapper .card .addon-check .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid var(--Light-gray);
+  border-radius: 5px;
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Style the checkmark/indicator */
+}
+.main .content .add-ons-wrapper .card .addon-check .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.main .content .add-ons-wrapper .card .addon-check .checkmark:after {
+  left: 7px;
+  top: 4px;
+  width: 6px;
+  height: 10px;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 2px 2px 0;
+  transform: rotate(40deg);
+}
+.main .content .add-ons-wrapper .card .addon-text h3 {
+  margin: 0;
+  color: var(--Marine-blue);
+  font-weight: 700;
+  font-size: 18px;
+}
+.main .content .add-ons-wrapper .card .addon-text p {
+  margin: 0;
+  color: var(--Cool-gray);
+  font-size: 14px;
+  font-weight: 500;
+}
+.main .content .add-ons-wrapper .card .addon-price {
   margin-left: auto;
+  color: var(--Purplish-blue);
+  font-weight: 700;
 }
 
 /** START Switch
