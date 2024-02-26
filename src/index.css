@@ -73,37 +73,40 @@ body {
   gap: 1rem;
 }
 .step .step_number {
-  width: 33px;
-  height: 33px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  font-style: normal;
   color: var(--White);
   border: 1px solid var(--White);
 }
 .step .active {
   background-color: var(--Light-blue);
   color: var(--Marine-blue);
-  border: none;
+  border-color: var(--Light-blue);
+  font-weight: 700;
 }
 .step .step_box {
   color: var(--White);
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-transform: uppercase;
-  font-style: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.12rch;
+  height: 100%;
 }
 .step .step_box .title {
   opacity: 0.7;
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 500;
 }
 .step .step_box .text {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .main {
