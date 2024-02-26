@@ -133,7 +133,6 @@ body {
 .main .content .text p {
   color: var(--Cool-gray);
   margin-block-start: 0rem;
-  font-weight: 500;
 }
 .main .content .form {
   margin-bottom: auto;
@@ -180,6 +179,9 @@ body {
   cursor: pointer;
   color: var(--Cool-gray);
   font-weight: 500;
+}
+.main .content .cta .back-btn:hover, .main .content .cta .back-btn :focus-visible {
+  color: var(--Marine-blue);
 }
 .main .content .cta button {
   margin-left: auto;
