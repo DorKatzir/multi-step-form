@@ -236,7 +236,6 @@ body{
                     flex-direction: column;
                     justify-content: space-between;
                     &:hover, :focus-visible{
-                        background-color: var(--Magnolia);
                         border-color: var(--Marine-blue);
                     }
                     .icon{
@@ -289,6 +288,9 @@ body{
                 align-items: center;
                 justify-content: space-between;
                 gap: 25px;
+                &:hover, :focus-visible{
+                    border: 1px solid var(--Marine-blue);
+                }
 
                 /* Customize the label (the container) */
                 .addon-check {
@@ -372,6 +374,23 @@ body{
                     color: var(--Purplish-blue);
                     font-weight: 700;
                     font-size: 14px;
+                }
+            }
+        }
+
+        .summary-wrapper{
+            height: 100%;
+            .summary-content{
+                padding: 25px;
+                border-radius: 8px;
+                background-color: var(--Alabaster);
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                hr{
+                    width: 100%;
+                    border-style: none;
+                    border-top: 1px solid var(--Light-gray);
                 }
             }
         }

@@ -222,7 +222,6 @@ body {
   justify-content: space-between;
 }
 .main .content .plan-wrapper .plan-cards .card:hover, .main .content .plan-wrapper .plan-cards .card :focus-visible {
-  background-color: var(--Magnolia);
   border-color: var(--Marine-blue);
 }
 .main .content .plan-wrapper .plan-cards .card .icon {
@@ -271,6 +270,9 @@ body {
   justify-content: space-between;
   gap: 25px;
   /* Customize the label (the container) */
+}
+.main .content .add-ons-wrapper .card:hover, .main .content .add-ons-wrapper .card :focus-visible {
+  border: 1px solid var(--Marine-blue);
 }
 .main .content .add-ons-wrapper .card .addon-check {
   display: block;
@@ -344,6 +346,22 @@ body {
   color: var(--Purplish-blue);
   font-weight: 700;
   font-size: 14px;
+}
+.main .content .summary-wrapper {
+  height: 100%;
+}
+.main .content .summary-wrapper .summary-content {
+  padding: 25px;
+  border-radius: 8px;
+  background-color: var(--Alabaster);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.main .content .summary-wrapper .summary-content hr {
+  width: 100%;
+  border-style: none;
+  border-top: 1px solid var(--Light-gray);
 }
 
 /** START Switch
