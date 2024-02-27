@@ -8,25 +8,19 @@ import iconThankYou from './assets/images/icon-thank-you.svg'
 
 // PARENT APP ////////////////////////////////////////////
 export default function App() {
-  // const [userInfo, setUserInfo] = useState({
-  //                                   name: 'dror',
-  //                                   email: 'dror@gmail.com',
-  //                                   phone: '123456',
-  //                                   }) 
 
   const [step, setStep] = useState(1)
   const [stepCounter, setStepCounter] = useState(1)
 
-  function handleNextStep(){
-    setStep(step => step + 1)
-    setStepCounter(counter => counter + 1)
+  function handleNextStep() {
+		setStep(step => step + 1)
+		setStepCounter(counter => counter + 1)
   }
 
   function handlePrevStep(){
     setStep(step => step - 1)
     setStepCounter(counter => counter - 1)
   }
-
 
   return (
 		<>
@@ -106,7 +100,43 @@ function Sidebar({stepCounter}) {
 }
 
 // STEP 1  //////////////////////////////////////////////
-function StepOne({ onNextStep }) {
+function StepOne({ onNextStep}) {
+  // const [user, setUser] = useState({
+  //                                   name: 'dror',
+  //                                   email: 'dror@gmail.com',
+  //                                   phone: '123456',
+  //                                   }) 
+  const [name, setName] = useState('') 
+  const [email, setEmail] = useState('') 
+  const [phone, setPhone] = useState('') 
+  const [isValidName, setIsValidName] = useState(true)
+  const [isValidEmail, setIsValidEmail] = useState(null)
+  const [isValidPhone, setIsValidPhone] = useState(null)
+  
+  function handleNameChange(e){
+    setName(e.target.value)
+  }
+  function handleEmailChange(e){
+    setEmail(e.target.value)
+  }
+  function handlePhoneChange(e){
+    setPhone(e.target.value)
+  }
+  function handleSubmit(){
+    const newName = name.trim()
+    // const newEmail = email.trim()
+    // const newPhone = phone.trim()
+
+    if(newName.length <= 1){
+        setIsValidName( x => x ==false)
+    }else{
+       setIsValidName( x => x ==true)
+    }
+    
+    // onNextStep()
+  }
+
+
 	return (
 		<>
 			<div className='text'>
@@ -117,39 +147,32 @@ function StepOne({ onNextStep }) {
 			</div>
 
 			<div className='form'>
+
 				<div className='name'>
-					<label>Name</label>
-					<input
-						type='text'
-						name=''
-						id=''
-						placeholder='e.g. Stephen King'
-					/>
+					<div className="label">
+            <label>Name</label>{ !isValidName && <span>This Field is required</span>}
+          </div>
+					<input className={ !isValidName ? 'error' : ''} type='text' placeholder='e.g. Stephen King' value={name} onChange={handleNameChange}/>
 				</div>
 
 				<div className='email'>
-					<label>Email Address</label>
-					<input
-						type='text'
-						name=''
-						id=''
-						placeholder='e.g. stephenking@lorem.com'
-					/>
+					<div className="label">
+            <label>Email Address</label>{isValidEmail && <span>This Field is required</span>}
+          </div>
+					<input className={isValidEmail ? 'error' : ''} type='text' placeholder='e.g. stephenking@lorem.com' value={email} onChange={handleEmailChange}/>
 				</div>
 
 				<div className='phone'>
-					<label>Phone Number</label>
-					<input
-						type='text'
-						name=''
-						id=''
-						placeholder='e.g. +1 234 567 890'
-					/>
+					<div className="label">
+            <label>Phone Number</label>{ isValidPhone && <span>This Field is required</span>}
+          </div>
+					<input className={isValidPhone ? 'error' : ''} type='text' placeholder='e.g. +1 234 567 890' value={phone} onChange={handlePhoneChange}/>
 				</div>
+
 			</div>
 
 			<div className='cta'>
-				<button onClick={onNextStep}>Next Step</button>
+				<button onClick={handleSubmit}>Next Step</button>
 			</div>
 		</>
 	)

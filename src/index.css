@@ -161,10 +161,29 @@ body {
   color: var(--Cool-gray);
   font-weight: 400;
 }
+.main .content .form .name .label, .main .content .form .email .label, .main .content .form .phone .label {
+  display: flex;
+  justify-content: space-between;
+}
+.main .content .form .name .label label, .main .content .form .name .label span, .main .content .form .email .label label, .main .content .form .email .label span, .main .content .form .phone .label label, .main .content .form .phone .label span {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.main .content .form .name .label span, .main .content .form .email .label span, .main .content .form .phone .label span {
+  font-size: 13px;
+  color: var(--Strawberry-red);
+  font-weight: 500;
+}
+.main .content .form .name input, .main .content .form .email input, .main .content .form .phone input {
+  text-transform: capitalize;
+}
+.main .content .form .name .error, .main .content .form .email .error, .main .content .form .phone .error {
+  border: 1px solid var(--Strawberry-red);
+}
 .main .content .form .name, .main .content .form .email, .main .content .form .phone {
   display: flex;
   margin-block-end: 30px;
-  gap: 0.5rem;
+  gap: 0.35rem;
   flex-direction: column;
 }
 .main .content .form .name :nth-child(2), .main .content .form .email :nth-child(2), .main .content .form .phone :nth-child(2) {

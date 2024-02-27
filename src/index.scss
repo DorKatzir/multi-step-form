@@ -151,8 +151,7 @@ body{
             font-weight: 500;
             label{
                 color: var(--Marine-blue);
-                font-size: 14px;
-                
+                font-size: 14px; 
             }
         
             input{
@@ -172,11 +171,32 @@ body{
 
             }
 
+            .name, .email, .phone{
+                .label{
+                    display: flex;
+                    justify-content: space-between;
+                    label, span{
+                        height: fit-content;
+                    }
+                    span{
+                        font-size: 13px;
+                        color: var(--Strawberry-red);
+                        font-weight: 500;
+                    }
+                }
+                input{
+                    text-transform: capitalize;
+                }
+                .error{
+                    border: 1px solid var(--Strawberry-red);
+                }
+            }
+
             
             .name, .email, .phone{
                 display: flex;
                 margin-block-end: 30px;
-                gap: .5rem;
+                gap: .35rem;
                 flex-direction: column;
                 & :nth-child(2) {
                     height: 40px;
