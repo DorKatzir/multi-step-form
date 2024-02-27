@@ -261,7 +261,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 						</div>
 						<div className='text'>Advanced</div>
 						
-						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+						<div className='price'>{plan === 'monthly' ? monthly.advanced : yearly.advanced}</div>
             { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
@@ -271,7 +271,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 						</div>
 						<div className='text'>Pro</div>
             
-						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+						<div className='price'>{plan === 'monthly' ? monthly.pro : yearly.pro}</div>
             { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
