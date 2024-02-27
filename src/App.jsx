@@ -101,6 +101,7 @@ function Sidebar({stepCounter}) {
 
 // STEP 1  //////////////////////////////////////////////
 function StepOne({ onNextStep}) {
+
   const [user, setUser] = useState({
                                     name: localStorage.getItem('name'),
                                     email: localStorage.getItem('email'),
@@ -160,7 +161,6 @@ function StepOne({ onNextStep}) {
 
   }
 
-
   function handleSubmit(){
 
     if (!user.name) {
@@ -170,13 +170,11 @@ function StepOne({ onNextStep}) {
     } else if (!user.phone){
       setErrorPhone(true)
     } else {
-      console.log('go next')
       onNextStep()
     }
    
     
   }
-
 
 	return (
 		<>
@@ -234,8 +232,31 @@ function StepTwo({onNextStep, onPrevStep}) {
                                             bonus: '2 months free'
                                           }) 
   const [plan, setPlan] = useState('monthly')
+
+  const [arcade, setArcade] = useState(true)
+  const [advanced, setAdvanced] = useState(false)
+  const [pro, setPro] = useState(false)
   
-  
+  ////////////////////////////////////////////////
+  function handleArcade(){
+    setArcade(true)
+    setAdvanced(false)
+    setPro(false)
+    console.log('arcade')
+  }
+  function handleAdvanced(){
+    setArcade(false)
+    setAdvanced(true)
+    setPro(false)
+    console.log('advanced')
+  }
+  function handlePro(){
+    setArcade(false)
+    setAdvanced(false)
+    setPro(true)
+    console.log('pro')
+  }
+  //////////////////////////////////////////////
 	return (
 		<>
 			<div className='text'>
@@ -245,7 +266,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 
 			<div className='plan-wrapper'>
 				<div className='plan-cards'>
-					<div className='card active'>
+					<div className={arcade ? 'card active' : 'card'} onClick={handleArcade}>
 						<div className='icon'>
 							<img src={iconArcade} alt='icon arcade' />
 						</div>
@@ -255,7 +276,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 						{ plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
-					<div className='card'>
+					<div className={advanced ? 'card active' : 'card'} onClick={handleAdvanced}>
 						<div className='icon'>
 							<img src={iconAdvanced} alt='icon advanced' />
 						</div>
@@ -265,7 +286,7 @@ function StepTwo({onNextStep, onPrevStep}) {
             { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
-					<div className='card'>
+					<div className={pro ? 'card active' : 'card'} onClick={handlePro}>
 						<div className='icon'>
 							<img src={iconPro} alt='icon pro' />
 						</div>
