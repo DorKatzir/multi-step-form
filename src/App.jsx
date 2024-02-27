@@ -101,39 +101,78 @@ function Sidebar({stepCounter}) {
 
 // STEP 1  //////////////////////////////////////////////
 function StepOne({ onNextStep}) {
-  // const [user, setUser] = useState({
-  //                                   name: 'dror',
-  //                                   email: 'dror@gmail.com',
-  //                                   phone: '123456',
-  //                                   }) 
-  const [name, setName] = useState('') 
-  const [email, setEmail] = useState('') 
-  const [phone, setPhone] = useState('') 
-  const [isValidName, setIsValidName] = useState(true)
-  const [isValidEmail, setIsValidEmail] = useState(null)
-  const [isValidPhone, setIsValidPhone] = useState(null)
+  const [user, setUser] = useState({
+                                    name: localStorage.getItem('name'),
+                                    email: localStorage.getItem('email'),
+                                    phone: localStorage.getItem('phone'),
+                                    }) 
+  
+  const [errorName, setErrorName] = useState(false)
+  const [errorEmail, setErrorEmail] = useState(false)
+  const [errorPhone, setErrorPhone] = useState(false)
   
   function handleNameChange(e){
-    setName(e.target.value)
-  }
-  function handleEmailChange(e){
-    setEmail(e.target.value)
-  }
-  function handlePhoneChange(e){
-    setPhone(e.target.value)
-  }
-  function handleSubmit(){
-    const newName = name.trim()
-    // const newEmail = email.trim()
-    // const newPhone = phone.trim()
+    const newName = e.target.value.trim()
 
-    if(newName.length <= 1){
-        setIsValidName( x => x ==false)
-    }else{
-       setIsValidName( x => x ==true)
+    if(newName.length < 2) {
+      setErrorName(true)
+    }else if(newName.length >= 2){
+      setErrorName(false)
     }
+
+    setUser({ ...user, name: newName })
+    localStorage.setItem('name', newName)
+
+  }
+
+  function handleEmailChange(e){
+    const newEmail = e.target.value.trim()
+    // eslint-disable-next-line no-useless-escape
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+    if(newEmail.match(mailformat)) {
+      setErrorEmail(false)
+    } else { 
+     setErrorEmail(true)
+    }
+
+    setUser({ ...user, email:newEmail })
+    localStorage.setItem('email', newEmail)
+  }
+
+  function handlePhoneChange(e){
+
+    const newPhone = e.target.value.trim()
+
+    // eslint-disable-next-line no-useless-escape
+    const phoneFormat = /^\d{10}$/
+
+    if(newPhone.match(phoneFormat)) {
+      setErrorPhone(false)
+    } else { 
+     setErrorPhone(true)
+    }
+
+    setUser({ ...user, phone:newPhone })
+    localStorage.setItem('phone', newPhone)
+
+  }
+
+
+  function handleSubmit(){
+
+    if (!user.name) {
+      setErrorName(true)
+    } else if (!user.email){
+      setErrorEmail(true)
+    } else if (!user.phone){
+      setErrorPhone(true)
+    } else {
+      console.log('go next')
+      onNextStep()
+    }
+   
     
-    // onNextStep()
   }
 
 
@@ -150,23 +189,23 @@ function StepOne({ onNextStep}) {
 
 				<div className='name'>
 					<div className="label">
-            <label>Name</label>{ !isValidName && <span>This Field is required</span>}
+            <label>Name</label>{ errorName && <span>This Field is required</span>}
           </div>
-					<input className={ !isValidName ? 'error' : ''} type='text' placeholder='e.g. Stephen King' value={name} onChange={handleNameChange}/>
+					<input className={ errorName ? 'error' : ''} type='text' placeholder='e.g. Stephen King' value={user.name} onChange={handleNameChange}/>
 				</div>
 
 				<div className='email'>
 					<div className="label">
-            <label>Email Address</label>{isValidEmail && <span>This Field is required</span>}
+            <label>Email Address</label>{errorEmail && <span>This Field is required</span>}
           </div>
-					<input className={isValidEmail ? 'error' : ''} type='text' placeholder='e.g. stephenking@lorem.com' value={email} onChange={handleEmailChange}/>
+					<input className={errorEmail ? 'error' : ''} type='text' placeholder='e.g. stephenking@lorem.com' value={user.email} onChange={handleEmailChange}/>
 				</div>
 
 				<div className='phone'>
 					<div className="label">
-            <label>Phone Number</label>{ isValidPhone && <span>This Field is required</span>}
+            <label>Phone Number</label>{ errorPhone && <span>This Field is required</span>}
           </div>
-					<input className={isValidPhone ? 'error' : ''} type='text' placeholder='e.g. +1 234 567 890' value={phone} onChange={handlePhoneChange}/>
+					<input className={errorPhone ? 'error' : ''} type='text' placeholder='e.g. +1 234 567 890' value={user.phone} onChange={handlePhoneChange}/>
 				</div>
 
 			</div>

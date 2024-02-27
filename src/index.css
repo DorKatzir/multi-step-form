@@ -180,6 +180,9 @@ body {
 .main .content .form .name .error, .main .content .form .email .error, .main .content .form .phone .error {
   border: 1px solid var(--Strawberry-red);
 }
+.main .content .form .email input {
+  text-transform: lowercase;
+}
 .main .content .form .name, .main .content .form .email, .main .content .form .phone {
   display: flex;
   margin-block-end: 30px;

@@ -191,6 +191,9 @@ body{
                     border: 1px solid var(--Strawberry-red);
                 }
             }
+            .email input{
+                text-transform: lowercase;
+            }
 
             
             .name, .email, .phone{
