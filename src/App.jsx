@@ -112,17 +112,19 @@ function StepOne({ onNextStep}) {
   const [errorPhone, setErrorPhone] = useState(false)
   
   function handleNameChange(e){
-    const newName = e.target.value.trim()
+		const newName = e.target.value.trim()
 
-    if(newName.length < 2) {
-      setErrorName(true)
-    }else if(newName.length >= 2){
-      setErrorName(false)
-    }
+		// eslint-disable-next-line no-useless-escape
+		const nameFormat = /^[A-Za-z]+$/
 
-    setUser({ ...user, name: newName })
-    localStorage.setItem('name', newName)
+		if (newName.match(nameFormat)) {
+			setErrorName(false)
+		} else {
+			setErrorName(true)
+		}
 
+		setUser({ ...user, name: newName })
+		localStorage.setItem('name', newName)
   }
 
   function handleEmailChange(e){
