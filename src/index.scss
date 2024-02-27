@@ -256,19 +256,21 @@ body{
                 .card{
                     flex: 1;
                     max-width: 135px;
-                    height: 160px;
+                    min-height: 160px;
+                    height: fit-content;
                     padding: 1rem;
                     border-radius: 8px;
                     border: 1px solid var(--Light-gray);
                     cursor: pointer;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: flex-end;
+                    gap: 5px;
                     &:hover, :focus-visible{
                         border-color: var(--Marine-blue);
                     }
                     .icon{
-                        margin-bottom: auto;
+                        margin-block-end: 36px;
                     }
                     .text{
                         color: var(--Marine-blue);
@@ -277,9 +279,18 @@ body{
                     }
                     .price{
                         color: var(--Cool-gray);
-                        font-weight: 700;
+                        font-weight: 500;
                         font-size: 14px;
                     }
+                    .bonus{
+                        color: var(--Marine-blue);
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+                }
+                .card.active{
+                    background-color: var(--Magnolia);
+                    border-color: var(--Marine-blue);
                 }
             }
             .plan{

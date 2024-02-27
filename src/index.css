@@ -240,20 +240,23 @@ body {
 .main .content .plan-wrapper .plan-cards .card {
   flex: 1;
   max-width: 135px;
-  height: 160px;
+  min-height: 160px;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid var(--Light-gray);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 5px;
 }
 .main .content .plan-wrapper .plan-cards .card:hover, .main .content .plan-wrapper .plan-cards .card :focus-visible {
   border-color: var(--Marine-blue);
 }
 .main .content .plan-wrapper .plan-cards .card .icon {
-  margin-bottom: auto;
+  margin-block-end: 36px;
 }
 .main .content .plan-wrapper .plan-cards .card .text {
   color: var(--Marine-blue);
@@ -262,8 +265,17 @@ body {
 }
 .main .content .plan-wrapper .plan-cards .card .price {
   color: var(--Cool-gray);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
+}
+.main .content .plan-wrapper .plan-cards .card .bonus {
+  color: var(--Marine-blue);
+  font-size: 12px;
+  font-weight: 500;
+}
+.main .content .plan-wrapper .plan-cards .card.active {
+  background-color: var(--Magnolia);
+  border-color: var(--Marine-blue);
 }
 .main .content .plan-wrapper .plan {
   background-color: var(--Magnolia);

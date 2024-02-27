@@ -221,7 +221,21 @@ function StepOne({ onNextStep}) {
 
 // STEP 2 //////////////////////////////////////////////
 function StepTwo({onNextStep, onPrevStep}) {
-
+  
+  const [monthly, setMonthly ] = useState({
+                                            arcade: '$9/mo',
+                                            advanced: '$12/mo',
+                                            pro: '$15/mo'
+                                          })                              
+  const [yearly, setYearly ] = useState({
+                                            arcade: '$90/yr',
+                                            advanced: '$120/yr',
+                                            pro: '$150/yr',
+                                            bonus: '2 months free'
+                                          }) 
+  const [plan, setPlan] = useState('monthly')
+  
+  
 	return (
 		<>
 			<div className='text'>
@@ -236,21 +250,30 @@ function StepTwo({onNextStep, onPrevStep}) {
 							<img src={iconArcade} alt='icon arcade' />
 						</div>
 						<div className='text'>Arcade</div>
-						<div className='price'>$9/mo</div>
+
+						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+						{ plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
+
 					</div>
 					<div className='card'>
 						<div className='icon'>
 							<img src={iconAdvanced} alt='icon advanced' />
 						</div>
 						<div className='text'>Advanced</div>
-						<div className='price'>$12/mo</div>
+						
+						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+            { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
+
 					</div>
 					<div className='card'>
 						<div className='icon'>
 							<img src={iconPro} alt='icon pro' />
 						</div>
 						<div className='text'>Pro</div>
-						<div className='price'>$15/mo</div>
+            
+						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+            { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
+
 					</div>
 				</div>
 				<div className='plan'>
