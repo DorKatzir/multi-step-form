@@ -245,7 +245,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 
 			<div className='plan-wrapper'>
 				<div className='plan-cards'>
-					<div className='card'>
+					<div className='card active'>
 						<div className='icon'>
 							<img src={iconArcade} alt='icon arcade' />
 						</div>
