@@ -344,6 +344,8 @@ function StepTwo({onNextStep, onPrevStep}) {
 // STEP 3 //////////////////////////////////////////////
 function StepThree({onNextStep, onPrevStep}) {
 
+	const plan = localStorage.getItem('plan')
+	
 	return (
 		<>
 			<div className='text'>
@@ -361,7 +363,7 @@ function StepThree({onNextStep, onPrevStep}) {
 						<h3>Online service</h3>
 						<p>Access to multiplayer games</p>
 					</div>
-					<div className='addon-price'>+$1/mo</div>
+					<div className='addon-price'>{ plan === 'monthly' ? '+$1/mo' : '+$10/yr' }</div>
 				</div>
 
 				<div className='card'>
@@ -373,7 +375,7 @@ function StepThree({onNextStep, onPrevStep}) {
             <h3>Larger storage</h3>
 						<p>Extra 1TB of cloud save</p>
 					</div>
-					<div className='addon-price'>+$2/mo</div>
+					<div className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
 				</div>
 
 				<div className='card'>
@@ -385,7 +387,7 @@ function StepThree({onNextStep, onPrevStep}) {
             <h3>Customizable Profile</h3>
             <p>Custom theme on your profile</p>
 					</div>
-					<div className='addon-price'>+$2/mo</div>
+					<div className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
 				</div>
 			</div>
 
