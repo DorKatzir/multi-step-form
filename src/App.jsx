@@ -243,6 +243,7 @@ function StepTwo({onNextStep, onPrevStep}) {
     setAdvanced(false)
     setPro(false)
     console.log('arcade')
+    
   }
   function handleAdvanced(){
     setArcade(false)
@@ -256,6 +257,12 @@ function StepTwo({onNextStep, onPrevStep}) {
     setPro(true)
     console.log('pro')
   }
+
+  function handlePlan(){
+    plan !== 'monthly' ? setPlan('monthly') : setPlan('yearly')
+  }
+
+
   //////////////////////////////////////////////
 	return (
 		<>
@@ -298,14 +305,14 @@ function StepTwo({onNextStep, onPrevStep}) {
 					</div>
 				</div>
 				<div className='plan'>
-					<span className='blue'>Monthly</span>
+					<span className={plan === 'monthly' ? 'blue' : ''}>Monthly</span>
 					<span>
 						<label className='switch'>
-							<input type='checkbox' />
+							<input type='checkbox' onChange={handlePlan} />
 							<span className='slider round'></span>
 						</label>
 					</span>
-					<span className=''>Yearly</span>
+					<span className={plan === 'yearly' ? 'blue' : ''}>Yearly</span>
 				</div>
 			</div>
 

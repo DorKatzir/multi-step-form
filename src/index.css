@@ -288,7 +288,7 @@ body {
   justify-content: center;
 }
 .main .content .plan-wrapper .plan span {
-  font-weight: 700;
+  font-weight: 500;
   color: var(--Cool-gray);
 }
 .main .content .plan-wrapper .plan span.blue {
