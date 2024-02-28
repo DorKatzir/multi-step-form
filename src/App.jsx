@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import iconArcade from './assets/images/icon-arcade.svg'
 import iconAdvanced from './assets/images/icon-advanced.svg'
 import iconPro from './assets/images/icon-pro.svg'
@@ -29,25 +29,25 @@ export default function App() {
 				<div className='main'>
 					<div className='content'>
 
-						{ step === 1 ? 
-                <StepOne onNextStep={handleNextStep}/> 
-              : null }
+						{ step === 1 
+								? <StepOne onNextStep={handleNextStep}/> 
+								: null }
 
-						{ step === 2 ? 
-                <StepTwo onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
-              : null }
+						{ step === 2 
+								? <StepTwo onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              					: null }
 
-						{ step === 3 ? 
-                <StepThree onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
-              : null }
+						{ step === 3 
+								? <StepThree onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              					: null }
 
-						{ step === 4 ? 
-              <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
-              : null }
+						{ step === 4 
+								? <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+              					: null }
 
-						{ step === 5 ? 
-              <StepFive /> 
-              : null }
+						{ step === 5 
+								? <StepFive /> 
+              					: null }
 
 					</div>
 				</div>
@@ -240,38 +240,11 @@ function StepTwo({onNextStep, onPrevStep}) {
 	const [arcade, setArcade] = useState(type === 'arcade')
 	const [advanced, setAdvanced] = useState(type === 'advanced')
 	const [pro, setPro] = useState(type === 'pro')
-	
-  ////////////////////////////////////////////////
-	function handleArcade(){
-		setArcade(true)
-		setAdvanced(false)
-		setPro(false)
-		
-	}
 
-	function handleAdvanced(){
-		setArcade(false)
-		setAdvanced(true)
-		setPro(false)
-		
-	}
-
-	function handlePro(){
-		setArcade(false)
-		setAdvanced(false)
-		setPro(true)
-		
-	}
-
-	function handlePlan(){
-		plan !== 'monthly' ? setPlan('monthly') : setPlan('yearly')
-	}
-
-	function handleSubmit(){
-		if(arcade){
+	useEffect(()=>{
+		if (arcade) {
 			localStorage.setItem('plan', plan)
 			localStorage.setItem('type', 'arcade')
-			
 		} else if (advanced) {
 			localStorage.setItem('plan', plan)
 			localStorage.setItem('type', 'advanced')
@@ -279,7 +252,30 @@ function StepTwo({onNextStep, onPrevStep}) {
 			localStorage.setItem('plan', plan)
 			localStorage.setItem('type', 'pro')
 		}
-		onNextStep()
+	}, [arcade,advanced,pro, plan])
+	
+
+  ////////////////////////////////////////////////
+	function handleArcade(){
+		setArcade(true)
+		setAdvanced(false)
+		setPro(false)
+	}
+
+	function handleAdvanced(){
+		setArcade(false)
+		setAdvanced(true)
+		setPro(false)
+	}
+
+	function handlePro(){
+		setArcade(false)
+		setAdvanced(false)
+		setPro(true)
+	}
+
+	function handlePlan(){
+		plan !== 'monthly' ? setPlan('monthly') : setPlan('yearly')
 	}
 
   //////////////////////////////////////////////
@@ -327,7 +323,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 					<span className={plan === 'monthly' ? 'blue' : ''}>Monthly</span>
 					<span>
 						<label className='switch'>
-							<input type='checkbox' onChange={handlePlan} />
+							<input type='checkbox' checked={plan === 'yearly' ? 'checked' : ''} onChange={handlePlan} />
 							<span className='slider round'></span>
 						</label>
 					</span>
@@ -339,7 +335,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 				<span className='back-btn'>
 					<a onClick={onPrevStep}>Go Back</a>
 				</span>
-				<button onClick={handleSubmit}>Next Step</button>
+				<button onClick={onNextStep}>Next Step</button>
 			</div>
 		</>
 	)
@@ -470,9 +466,6 @@ function StepFive() {
 		</>
 	)
 }
-
-
-
 
 
 
