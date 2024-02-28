@@ -346,37 +346,35 @@ function StepThree({onNextStep, onPrevStep}) {
 
 	const plan = localStorage.getItem('plan')
 
-	
+	const [addOnServices, setAddOnServices] = useState(localStorage.getItem('addOn-1') || '')
+	const [addOnStorage, setAddOnStorage] = useState(localStorage.getItem('addOn-2') || '')
 	const [addOnProfile, setAddOnProfile] = useState(localStorage.getItem('addOn-3') || '')
-	const [addOnStorage, setAddOnStorage] = useState('')
-	const [addOnServices, setAddOnServices] = useState('')
 
 	useEffect(()=>{
 
+		addOnServices.length > 0 && localStorage.setItem('addOn-1', addOnServices)
+		addOnServices.length === 0 && localStorage.removeItem('addOn-1')
+		
+		addOnStorage.length > 0 && localStorage.setItem('addOn-2', addOnStorage)
+		addOnStorage.length === 0 && localStorage.removeItem('addOn-2')
+		
 		addOnProfile.length > 0 && localStorage.setItem('addOn-3', addOnProfile)
 		addOnProfile.length === 0 && localStorage.removeItem('addOn-3')
 
-		addOnStorage.length > 0 && localStorage.setItem('addOn-2', addOnStorage)
-		addOnStorage.length === 0 && localStorage.removeItem('addOn-2')
-
-		addOnServices.length > 0 && localStorage.setItem('addOn-1', addOnServices)
-		addOnServices.length === 0 && localStorage.removeItem('addOn-1')
-
 	}, [addOnProfile, addOnStorage, addOnServices])
-
-	
-	function handleAddOnProfile(e) {	 
-		e.target.value === 'Customizable Profile' ? setAddOnProfile('') : setAddOnProfile('Customizable Profile')	
-	}
-
-	function handleAddOnStorage (e) {
-		e.target.value === 'Larger storage' ? setAddOnStorage('') : setAddOnStorage('Larger storage')
-	}
 
 	function handleAddOnServices (e) {
 		e.target.value === 'Online service' ? setAddOnServices('') : setAddOnServices('Online service')
 	}
 	
+	function handleAddOnStorage (e) {
+		e.target.value === 'Larger storage' ? setAddOnStorage('') : setAddOnStorage('Larger storage')
+	}
+		
+	function handleAddOnProfile(e) {	 
+		e.target.value === 'Customizable Profile' ? setAddOnProfile('') : setAddOnProfile('Customizable Profile')	
+	}
+
 	return (
 		<>
 			<div className='text'>
@@ -388,7 +386,7 @@ function StepThree({onNextStep, onPrevStep}) {
 
 				<div className={ addOnServices.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
-						<input type='checkbox' value={addOnServices} onChange={handleAddOnServices} />
+						<input type='checkbox' checked={addOnServices} value={addOnServices} onChange={handleAddOnServices} />
 						<span className='checkmark'></span>
 					</label>
 					<div className='addon-text'>
@@ -400,7 +398,7 @@ function StepThree({onNextStep, onPrevStep}) {
 
 				<div className={ addOnStorage.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
-						<input type='checkbox' value={addOnStorage} onChange={handleAddOnStorage} />
+						<input type='checkbox' checked={addOnStorage} value={addOnStorage} onChange={handleAddOnStorage} />
 						<span className='checkmark'></span>
 					</label>
 					<div className='addon-text'>
@@ -412,7 +410,7 @@ function StepThree({onNextStep, onPrevStep}) {
 
 				<div className={ addOnProfile.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
-						<input type='checkbox' value={addOnProfile} checked={addOnProfile} onChange={handleAddOnProfile} />
+						<input type='checkbox' checked={addOnProfile} value={addOnProfile} onChange={handleAddOnProfile} />
 						<span className='checkmark'></span>
 					</label>
 					<div className='addon-text'>
