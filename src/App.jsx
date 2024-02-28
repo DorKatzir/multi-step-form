@@ -220,48 +220,67 @@ function StepOne({ onNextStep}) {
 // STEP 2 //////////////////////////////////////////////
 function StepTwo({onNextStep, onPrevStep}) {
   
-  const [monthly, setMonthly ] = useState({
-                                            arcade: '$9/mo',
-                                            advanced: '$12/mo',
-                                            pro: '$15/mo'
-                                          })                              
-  const [yearly, setYearly ] = useState({
-                                            arcade: '$90/yr',
-                                            advanced: '$120/yr',
-                                            pro: '$150/yr',
-                                            bonus: '2 months free'
-                                          }) 
-  const [plan, setPlan] = useState('monthly')
+	const monthly = {
+				arcade: '$9/mo',
+				advanced: '$12/mo',
+				pro: '$15/mo'
+			} 
 
-  const [arcade, setArcade] = useState(true)
-  const [advanced, setAdvanced] = useState(false)
-  const [pro, setPro] = useState(false)
-  
+	const yearly ={
+				arcade: '$90/yr',
+				advanced: '$120/yr',
+				pro: '$150/yr',
+				bonus: '2 months free'
+			}
+
+	const p = localStorage.getItem('plan') ? localStorage.getItem('plan') : 'monthly'
+  	const [plan, setPlan] = useState(p)
+
+	const type = !localStorage.getItem('type') ? 'arcade' : localStorage.getItem('type')
+	const [arcade, setArcade] = useState(type === 'arcade')
+	const [advanced, setAdvanced] = useState(type === 'advanced')
+	const [pro, setPro] = useState(type === 'pro')
+	
   ////////////////////////////////////////////////
-  function handleArcade(){
-    setArcade(true)
-    setAdvanced(false)
-    setPro(false)
-    console.log('arcade')
-    
-  }
-  function handleAdvanced(){
-    setArcade(false)
-    setAdvanced(true)
-    setPro(false)
-    console.log('advanced')
-  }
-  function handlePro(){
-    setArcade(false)
-    setAdvanced(false)
-    setPro(true)
-    console.log('pro')
-  }
+	function handleArcade(){
+		setArcade(true)
+		setAdvanced(false)
+		setPro(false)
+		
+	}
 
-  function handlePlan(){
-    plan !== 'monthly' ? setPlan('monthly') : setPlan('yearly')
-  }
+	function handleAdvanced(){
+		setArcade(false)
+		setAdvanced(true)
+		setPro(false)
+		
+	}
 
+	function handlePro(){
+		setArcade(false)
+		setAdvanced(false)
+		setPro(true)
+		
+	}
+
+	function handlePlan(){
+		plan !== 'monthly' ? setPlan('monthly') : setPlan('yearly')
+	}
+
+	function handleSubmit(){
+		if(arcade){
+			localStorage.setItem('plan', plan)
+			localStorage.setItem('type', 'arcade')
+			
+		} else if (advanced) {
+			localStorage.setItem('plan', plan)
+			localStorage.setItem('type', 'advanced')
+		} else if (pro) {
+			localStorage.setItem('plan', plan)
+			localStorage.setItem('type', 'pro')
+		}
+		onNextStep()
+	}
 
   //////////////////////////////////////////////
 	return (
@@ -320,7 +339,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 				<span className='back-btn'>
 					<a onClick={onPrevStep}>Go Back</a>
 				</span>
-				<button onClick={onNextStep}>Next Step</button>
+				<button onClick={handleSubmit}>Next Step</button>
 			</div>
 		</>
 	)
