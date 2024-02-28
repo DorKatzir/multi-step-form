@@ -328,6 +328,8 @@ body{
                 align-items: center;
                 justify-content: space-between;
                 gap: 25px;
+                cursor: pointer;
+
                 &:hover, :focus-visible{
                     border: 1px solid var(--Marine-blue);
                 }
@@ -415,6 +417,10 @@ body{
                     font-weight: 700;
                     font-size: 14px;
                 }
+            }
+            .card.active{
+                background-color: var(--Magnolia);
+                border: 1px solid var(--Purplish-blue);
             }
         }
 

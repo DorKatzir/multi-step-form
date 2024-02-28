@@ -309,6 +309,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+  cursor: pointer;
   /* Customize the label (the container) */
 }
 .main .content .add-ons-wrapper .card:hover, .main .content .add-ons-wrapper .card :focus-visible {
@@ -386,6 +387,10 @@ body {
   color: var(--Purplish-blue);
   font-weight: 700;
   font-size: 14px;
+}
+.main .content .add-ons-wrapper .card.active {
+  background-color: var(--Magnolia);
+  border: 1px solid var(--Purplish-blue);
 }
 .main .content .summary-wrapper {
   height: 100%;
