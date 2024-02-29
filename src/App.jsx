@@ -11,7 +11,6 @@ export default function App() {
 
   const [step, setStep] = useState(1)
   const [stepCounter, setStepCounter] = useState(1)
-  const [isValid, setIsValid] = useState(Boolean)
 
   function handleNextStep() {
 		setStep(step => step + 1)
