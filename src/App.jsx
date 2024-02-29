@@ -11,6 +11,7 @@ export default function App() {
 
   const [step, setStep] = useState(1)
   const [stepCounter, setStepCounter] = useState(1)
+  const [isValid, setIsValid] = useState(Boolean)
 
   function handleNextStep() {
 		setStep(step => step + 1)
@@ -30,7 +31,7 @@ export default function App() {
 					<div className='content'>
 
 						{ step === 1 
-								? <StepOne onNextStep={handleNextStep}/> 
+								? <StepOne onNextStep={handleNextStep} /> 
 								: null }
 
 						{ step === 2 
@@ -100,79 +101,77 @@ function Sidebar({stepCounter}) {
 }
 
 // STEP 1  //////////////////////////////////////////////
-function StepOne({ onNextStep}) {
+function StepOne({ onNextStep }) {
 
   const [user, setUser] = useState({
                                     name: localStorage.getItem('name'),
                                     email: localStorage.getItem('email'),
-                                    phone: localStorage.getItem('phone'),
+                                    phone: localStorage.getItem('phone')
                                     }) 
   
-  const [errorName, setErrorName] = useState(false)
-  const [errorEmail, setErrorEmail] = useState(false)
-  const [errorPhone, setErrorPhone] = useState(false)
+  const [errorName, setErrorName] = useState(Boolean)
+  const [errorEmail, setErrorEmail] = useState(Boolean)
+  const [errorPhone, setErrorPhone] = useState(Boolean)
   
   function handleNameChange(e){
-		const newName = e.target.value.trim()
-
-		// eslint-disable-next-line no-useless-escape
+		const inputName = e.target.value.trim()
+		setUser({ ...user, name: inputName })
+		
 		const nameFormat = /^[A-Za-z]+$/
 
-		if (newName.match(nameFormat)) {
+		if (inputName.match(nameFormat) && inputName.length > 2 && inputName.length < 20) {
 			setErrorName(false)
 		} else {
 			setErrorName(true)
-		}
-
-		setUser({ ...user, name: newName })
-		localStorage.setItem('name', newName)
+		}	
   }
 
-  function handleEmailChange(e){
-    const newEmail = e.target.value.trim()
-    // eslint-disable-next-line no-useless-escape
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  function handleEmailChange(e) {
+		const inputEmail = e.target.value
+		setUser({ ...user, email: inputEmail })
 
-    if(newEmail.match(mailformat)) {
-      setErrorEmail(false)
-    } else { 
-     setErrorEmail(true)
-    }
+		const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
-    setUser({ ...user, email:newEmail })
-    localStorage.setItem('email', newEmail)
+		if (inputEmail.match(mailformat)) {
+			setErrorEmail(false)
+		} else {
+			setErrorEmail(true)
+		}
+
   }
 
   function handlePhoneChange(e){
+		const inputPhone = e.target.value
+		setUser({ ...user, phone: inputPhone })
 
-    const newPhone = e.target.value.trim()
+		const phoneFormat = /^\d{10}$/
 
-    // eslint-disable-next-line no-useless-escape
-    const phoneFormat = /^\d{10}$/
+		if (inputPhone.match(phoneFormat)) {
+			setErrorPhone(false)
+		} else {
+			setErrorPhone(true)
+		}
+}
 
-    if(newPhone.match(phoneFormat)) {
-      setErrorPhone(false)
-    } else { 
-     setErrorPhone(true)
-    }
-
-    setUser({ ...user, phone:newPhone })
-    localStorage.setItem('phone', newPhone)
-
-  }
 
   function handleSubmit(){
+	
+    !user.name && setErrorName(true)
+    !user.email && setErrorEmail(true)
+    !user.phone && setErrorPhone(true)
+	
+	if( user.name !== null && errorName === false){
+		localStorage.setItem('name', user.name)
 
-    if (!user.name) {
-      setErrorName(true)
-    } else if (!user.email){
-      setErrorEmail(true)
-    } else if (!user.phone){
-      setErrorPhone(true)
-    } else {
-      onNextStep()
-    }
-   
+		if(user.email !== null && errorEmail === false){
+			localStorage.setItem('email', user.email)
+
+			if(user.phone !== null && errorPhone === false){
+				localStorage.setItem('phone', user.phone)
+				onNextStep()
+			}
+		}
+	} 
     
   }
 
