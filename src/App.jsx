@@ -18,8 +18,13 @@ export default function App() {
   }
 
   function handlePrevStep(){
-    setStep(step => step - 1)
-    setStepCounter(counter => counter - 1)
+	  setStep(step => step - 1)
+	  setStepCounter(counter => counter - 1)
+	}
+	
+	function handleChangeStep(num){
+	  setStep(step => step - num)
+	  setStepCounter(counter => counter - num)
   }
 
   return (
@@ -42,7 +47,7 @@ export default function App() {
               					: null }
 
 						{ step === 4 
-								? <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
+								? <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} onChangeStep={handleChangeStep} /> 
               					: null }
 
 						{ step === 5 
@@ -431,8 +436,7 @@ function StepThree({onNextStep, onPrevStep}) {
 }
 
 // STEP 4 //////////////////////////////////////////////
-function StepFour({onNextStep, onPrevStep}) {
-
+function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 	const [price, setPrice] = useState(0)
 	const [servicePrice, setServicePrice] = useState(0)
 	const [storagePrice, setStoragePrice] = useState(0)
@@ -446,9 +450,8 @@ function StepFour({onNextStep, onPrevStep}) {
 	const profile = localStorage.getItem('addOn-3') || ''
 
 	const totalPrice = price + servicePrice + storagePrice + profilePrice
-	
-	useEffect(()=>{	
 
+	useEffect(() => {
 		const monthly = {
 			arcade: 9,
 			advanced: 12,
@@ -470,7 +473,7 @@ function StepFour({onNextStep, onPrevStep}) {
 		if (profile.length > 0 && plan === 'yearly') {
 			setProfilePrice(20)
 		}
-	
+
 		if (service.length > 0 && plan === 'monthly') {
 			setServicePrice(1)
 		}
@@ -480,7 +483,6 @@ function StepFour({onNextStep, onPrevStep}) {
 		if (profile.length > 0 && plan === 'monthly') {
 			setProfilePrice(2)
 		}
-
 
 		if (type === 'arcade' && plan === 'yearly') {
 			setPrice(yearly.arcade)
@@ -501,13 +503,8 @@ function StepFour({onNextStep, onPrevStep}) {
 		if (type === 'pro' && plan === 'monthly') {
 			setPrice(monthly.pro)
 		}
+	}, [price, plan, type, service, storage, profile])
 
-	},[price, plan, type, service, storage, profile])
-
-
-	// const price = plan == 'yearly' && yearly.plan 
-	
-	
 	return (
 		<>
 			<div className='text'>
@@ -519,40 +516,55 @@ function StepFour({onNextStep, onPrevStep}) {
 				<div className='summary-content'>
 					<div className='summary-plan'>
 						<h4 className='plan first-letter'>
-							{type ? type : 'no type'} ({plan?plan:'no plan'}) <br /> <span>change</span>
+							{type ? type : 'no type'} ({plan ? plan : 'no plan'}
+							) <br /> <span onClick={()=>onChangeStep(2)}>change</span>
 						</h4>
-						<span className='price'>${price}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
+						<span className='price'>
+							${price}/{plan === 'monthly' ? 'mo' : 'yr'}
+						</span>
 					</div>
 					<hr />
 					<div className='summary-details'>
-
-						{ service &&	
+						{service && (
 							<div className='service'>
 								<span>Online service</span>
-								<span className='service-price'>+${servicePrice}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
-							</div> 
-						}
+								<span className='service-price'>
+									+${servicePrice}/
+									{plan === 'monthly' ? 'mo' : 'yr'}
+								</span>
+							</div>
+						)}
 
-						{ storage &&
+						{storage && (
 							<div className='storage'>
 								<span>Large storage</span>
-								<span className='storage-price'>+${storagePrice}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
+								<span className='storage-price'>
+									+${storagePrice}/
+									{plan === 'monthly' ? 'mo' : 'yr'}
+								</span>
 							</div>
-						}
+						)}
 
-						{ profile &&
+						{profile && (
 							<div className='profile'>
 								<span>Customizable Profile</span>
-								<span className='profile-price'>+${profilePrice}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
+								<span className='profile-price'>
+									+${profilePrice}/
+									{plan === 'monthly' ? 'mo' : 'yr'}
+								</span>
 							</div>
-						}
-
+						)}
 					</div>
 				</div>
 
 				<div className='summary-total'>
-					<span className='total-text'>Total {plan === 'monthly' ? '(per month)' : '(per year)'} </span>
-					<span className='total-price'>${totalPrice}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
+					<span className='total-text'>
+						Total{' '}
+						{plan === 'monthly' ? '(per month)' : '(per year)'}{' '}
+					</span>
+					<span className='total-price'>
+						${totalPrice}/{plan === 'monthly' ? 'mo' : 'yr'}
+					</span>
 				</div>
 			</div>
 
@@ -560,7 +572,9 @@ function StepFour({onNextStep, onPrevStep}) {
 				<span className='back-btn'>
 					<a onClick={onPrevStep}>Go Back</a>
 				</span>
-				<button onClick={onNextStep} className='confirm-btn'>Confirm</button>
+				<button onClick={onNextStep} className='confirm-btn'>
+					Confirm
+				</button>
 			</div>
 		</>
 	)
