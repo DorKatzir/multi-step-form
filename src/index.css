@@ -402,7 +402,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-height: 180px;
 }
 .main .content .summary-wrapper .summary-content hr {
   width: 100%;
