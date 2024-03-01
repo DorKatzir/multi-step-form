@@ -565,3 +565,130 @@ input:checked + .slider:before {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+@media (width < 800px) {
+  .container {
+    all: unset;
+    display: flex;
+    padding-inline: 1rem;
+  }
+  .container .sidebar {
+    all: unset;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    height: 172px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-image: url(/src/assets/images/bg-sidebar-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .container .sidebar .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100px;
+  }
+  .container .sidebar .step .step_number {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--White);
+    border: 1px solid var(--White);
+  }
+  .container .sidebar .step .active {
+    background-color: var(--Light-blue);
+    color: var(--Marine-blue);
+    border-color: var(--Light-blue);
+    font-weight: 700;
+  }
+  .container .sidebar .step .step_box {
+    display: none;
+  }
+  .container .main {
+    background-color: #fff;
+    margin: 100px auto;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+  }
+  .container .main .content {
+    padding-top: 0;
+    padding-block-end: 1rem;
+    padding-inline: 2rem;
+    gap: 10px;
+  }
+  .container .main .content .cta {
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    max-width: 450px;
+  }
+  .container .main .content .form {
+    margin-bottom: auto;
+    font-weight: 500;
+  }
+  .container .main .content .form label {
+    color: var(--Marine-blue);
+    font-size: 14px;
+  }
+  .container .main .content .form input {
+    all: unset;
+    border: 1px solid var(--Light-gray);
+    padding-inline-start: 1rem;
+    border-radius: 8px;
+    color: var(--Marine-blue);
+    font-weight: 700;
+  }
+  .container .main .content .form input:focus, .container .main .content .form input :focus-visible {
+    border: 1px solid var(--Marine-blue);
+  }
+  .container .main .content .form input::-moz-placeholder {
+    color: var(--Cool-gray);
+    font-weight: 400;
+  }
+  .container .main .content .form input::placeholder {
+    color: var(--Cool-gray);
+    font-weight: 400;
+  }
+  .container .main .content .form .name .label, .container .main .content .form .email .label, .container .main .content .form .phone .label {
+    display: flex;
+    justify-content: space-between;
+  }
+  .container .main .content .form .name .label label, .container .main .content .form .name .label span, .container .main .content .form .email .label label, .container .main .content .form .email .label span, .container .main .content .form .phone .label label, .container .main .content .form .phone .label span {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .container .main .content .form .name .label span, .container .main .content .form .email .label span, .container .main .content .form .phone .label span {
+    font-size: 13px;
+    color: var(--Strawberry-red);
+    font-weight: 500;
+  }
+  .container .main .content .form .name input, .container .main .content .form .email input, .container .main .content .form .phone input {
+    text-transform: capitalize;
+  }
+  .container .main .content .form .name .error, .container .main .content .form .email .error, .container .main .content .form .phone .error {
+    border: 1px solid var(--Strawberry-red);
+  }
+  .container .main .content .form .email input {
+    text-transform: lowercase;
+  }
+  .container .main .content .form .name, .container .main .content .form .email, .container .main .content .form .phone {
+    display: flex;
+    margin-block-end: 15px;
+    gap: 0.35rem;
+    flex-direction: column;
+  }
+  .container .main .content .form .name :nth-child(2), .container .main .content .form .email :nth-child(2), .container .main .content .form .phone :nth-child(2) {
+    height: 35px;
+  }
+}

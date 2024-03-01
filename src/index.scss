@@ -194,7 +194,6 @@ body{
             .email input{
                 text-transform: lowercase;
             }
-
             
             .name, .email, .phone{
                 display: flex;
@@ -616,4 +615,141 @@ input:checked + .slider:before {
     padding-block-start: .5rem;
     font-size: 11px; text-align: center;
     a { color: hsl(228, 45%, 44%); }
+}
+
+
+
+/////   MEDIA QUERIES    /////////////////////////////////////////
+@media (width < 800px) { 
+    .container{
+        all: unset;
+        display: flex;
+        padding-inline: 1rem;
+
+       .sidebar{
+            all: unset;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            width: 100%;
+            height: 172px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background-image: url(/src/assets/images/bg-sidebar-mobile.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+           .step{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                height: 100px;
+
+                .step_number{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    text-align: center;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 500;
+                    color: var(--White);
+                    border: 1px solid var(--White);
+                }
+                .active{
+                    background-color: var(--Light-blue);
+                    color: var(--Marine-blue);
+                    border-color: var(--Light-blue);
+                    font-weight: 700;
+                }
+                .step_box{
+                    display: none;
+                }
+            }
+
+        }
+        .main{
+            background-color: #fff;
+            margin: 100px auto;
+            width: fit-content;
+            position: relative;
+            .content{
+                padding-top: 0;
+                padding-block-end: 1rem;
+                padding-inline: 2rem;
+                gap: 10px;
+                .cta{
+                    position: absolute;
+                    bottom: -100px;
+                    right: 0;
+                    
+                    max-width: 450px;
+                }
+                 .form{
+                    margin-bottom: auto;
+                    font-weight: 500;
+                    label{
+                        color: var(--Marine-blue);
+                        font-size: 14px; 
+                    }
+                
+                    input{
+                        all: unset;
+                        border: 1px solid var(--Light-gray);
+                        padding-inline-start: 1rem;
+                        border-radius: 8px;
+                        color: var(--Marine-blue);
+                        font-weight: 700;
+                        &:focus, :focus-visible{
+                            border: 1px solid var(--Marine-blue);
+                        }
+                        &::placeholder{
+                            color: var(--Cool-gray);
+                            font-weight: 400;
+                        }
+
+                    }
+
+                    .name, .email, .phone{
+                        .label{
+                            display: flex;
+                            justify-content: space-between;
+                            label, span{
+                                height: fit-content;
+                            }
+                            span{
+                                font-size: 13px;
+                                color: var(--Strawberry-red);
+                                font-weight: 500;
+                            }
+                        }
+                        input{
+                            text-transform: capitalize;
+                        }
+                        .error{
+                            border: 1px solid var(--Strawberry-red);
+                        }
+                    }
+                    .email input{
+                        text-transform: lowercase;
+                    }
+                    
+                    .name, .email, .phone{
+                        display: flex;
+                        margin-block-end: 15px;
+                        gap: .35rem;
+                        flex-direction: column;
+                        & :nth-child(2) {
+                            height: 35px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        
+    }
 }
