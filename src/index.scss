@@ -601,10 +601,19 @@ input:checked + .slider:before {
     text-transform: capitalize;
  }
 
-
+ /// center horizontal and verticle
+ .center{
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+ }
 
 .attribution{
-    padding-block: 1rem;
+    padding-block-start: .5rem;
     font-size: 11px; text-align: center;
     a { color: hsl(228, 45%, 44%); }
 }
