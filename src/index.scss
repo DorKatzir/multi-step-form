@@ -672,17 +672,20 @@ input:checked + .slider:before {
         }
         .main{
             background-color: #fff;
-            margin: 70px auto;
+            margin: 75px auto;
             width: fit-content;
             
             .content{
                 padding-top: 0;
                 padding-block-end: 1rem;
-                padding-inline: 2rem;
+                padding-inline: 1.6rem;
                 gap: 10px;
                 .text {
                     h2{
                         font-size: 1.7rem;
+                    }
+                    p{
+                        margin-block-start: 1rem;
                     }
                 }
                 .cta{
@@ -693,7 +696,7 @@ input:checked + .slider:before {
                     margin: 0 auto;
                     position: absolute;
                     inset: 0;
-                    // padding-inline: 1.8rem;
+                    padding-inline: 1.3rem;
                     padding-block-end: 2rem;
                     z-index: -1;
                     button{
@@ -773,9 +776,12 @@ input:checked + .slider:before {
     }
 
     .attribution{
+        position: absolute;
+        left: 0;
+        bottom: 5px;
+        right: 0;
         padding-block-start: .5rem;
         font-size: 11px; 
-        text-align: left;
         a { color: hsl(228, 45%, 44%); }
     }
 

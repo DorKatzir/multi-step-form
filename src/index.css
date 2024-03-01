@@ -616,18 +616,21 @@ input:checked + .slider:before {
   }
   .container .main {
     background-color: #fff;
-    margin: 70px auto;
+    margin: 75px auto;
     width: -moz-fit-content;
     width: fit-content;
   }
   .container .main .content {
     padding-top: 0;
     padding-block-end: 1rem;
-    padding-inline: 2rem;
+    padding-inline: 1.6rem;
     gap: 10px;
   }
   .container .main .content .text h2 {
     font-size: 1.7rem;
+  }
+  .container .main .content .text p {
+    margin-block-start: 1rem;
   }
   .container .main .content .cta {
     display: flex;
@@ -637,6 +640,7 @@ input:checked + .slider:before {
     margin: 0 auto;
     position: absolute;
     inset: 0;
+    padding-inline: 1.3rem;
     padding-block-end: 2rem;
     z-index: -1;
   }
@@ -714,9 +718,12 @@ input:checked + .slider:before {
     height: 40px;
   }
   .attribution {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    right: 0;
     padding-block-start: 0.5rem;
     font-size: 11px;
-    text-align: left;
   }
   .attribution a {
     color: hsl(228, 45%, 44%);
