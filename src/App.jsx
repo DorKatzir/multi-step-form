@@ -108,9 +108,9 @@ function Sidebar({stepCounter}) {
 function StepOne({ onNextStep }) {
 
   const [user, setUser] = useState({
-                                    name: localStorage.getItem('name'),
-                                    email: localStorage.getItem('email'),
-                                    phone: localStorage.getItem('phone')
+                                    name: localStorage.getItem('name') || '',
+                                    email: localStorage.getItem('email') || '',
+                                    phone: localStorage.getItem('phone') || ''
                                     }) 
   
   const [errorName, setErrorName] = useState(Boolean)
@@ -164,7 +164,7 @@ function StepOne({ onNextStep }) {
     !user.email && setErrorEmail(true)
     !user.phone && setErrorPhone(true)
 	
-	if( user.name !== null && errorName === false){
+	if( user.name !== null && errorName === false ){
 		localStorage.setItem('name', user.name)
 
 		if(user.email !== null && errorEmail === false){
@@ -582,6 +582,19 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 
 // STEP 5 //////////////////////////////////////////////
 function StepFive() {
+
+	useEffect(()=>{
+		localStorage.removeItem('email')
+		localStorage.removeItem('name')
+		localStorage.removeItem('phone')
+		localStorage.removeItem('plan')
+		localStorage.removeItem('type')
+		localStorage.removeItem('addOn-1')
+		localStorage.removeItem('addOn-2')
+		localStorage.removeItem('addOn-3')
+		
+
+	})
 
 	return (
 		<>
