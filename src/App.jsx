@@ -164,13 +164,13 @@ function StepOne({ onNextStep }) {
     !user.email && setErrorEmail(true)
     !user.phone && setErrorPhone(true)
 	
-	if( user.name !== null && errorName === false ){
+	if (user.name !== null && errorName === false && user.name !== '') {
 		localStorage.setItem('name', user.name)
 
-		if(user.email !== null && errorEmail === false){
+		if (user.email !== null && errorEmail === false && user.email !== '') {
 			localStorage.setItem('email', user.email)
 
-			if(user.phone !== null && errorPhone === false){
+			if (user.phone !== null && errorPhone === false && user.phone !== '') {
 				localStorage.setItem('phone', user.phone)
 				onNextStep()
 			}
@@ -592,8 +592,6 @@ function StepFive() {
 		localStorage.removeItem('addOn-1')
 		localStorage.removeItem('addOn-2')
 		localStorage.removeItem('addOn-3')
-		
-
 	})
 
 	return (
@@ -613,8 +611,6 @@ function StepFive() {
 		</>
 	)
 }
-
-
 
 function Footer() {
   return (
