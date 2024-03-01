@@ -302,6 +302,7 @@ body{
                 display: flex;
                 gap: 1rem;
                 justify-content: center;
+                
                 span{
                     font-weight: 500;
                     color: var(--Cool-gray);
@@ -587,6 +588,9 @@ input:checked + .slider:before {
  -------------------------------------*/
 
 
+ .first-letter{
+    text-transform: capitalize;
+ }
 
 
 

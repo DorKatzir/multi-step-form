@@ -433,6 +433,51 @@ function StepThree({onNextStep, onPrevStep}) {
 // STEP 4 //////////////////////////////////////////////
 function StepFour({onNextStep, onPrevStep}) {
 
+
+
+	const plan = localStorage.getItem('plan') || 'none' // yearly, monthly
+	const type = localStorage.getItem('type') || 'none' // arcade, advanced, pro
+
+	const [price, setPrice] = useState(0)
+
+	useEffect(()=>{
+		const monthly = {
+			arcade: 9,
+			advanced: 12,
+			pro: 15,
+		}
+
+		const yearly = {
+			arcade: 90,
+			advanced: 120,
+			pro: 150,
+		}
+
+		if (type === 'arcade' && plan === 'yearly') {
+			setPrice(yearly.arcade)
+		}
+		if (type === 'advanced' && plan === 'yearly') {
+			setPrice(yearly.advanced)
+		}
+		if (type === 'pro' && plan === 'yearly') {
+			setPrice(yearly.pro)
+		}
+
+		if (type === 'arcade' && plan === 'monthly') {
+			setPrice(monthly.arcade)
+		}
+		if (type === 'advanced' && plan === 'monthly') {
+			setPrice(monthly.advanced)
+		}
+		if (type === 'pro' && plan === 'monthly') {
+			setPrice(monthly.pro)
+		}
+	},[price, plan, type])
+
+
+	// const price = plan == 'yearly' && yearly.plan 
+	
+	
 	return (
 		<>
 			<div className='text'>
@@ -443,27 +488,27 @@ function StepFour({onNextStep, onPrevStep}) {
 			<div className='summary-wrapper'>
 				<div className='summary-content'>
 					<div className='summary-plan'>
-						<h4 className='plan'>
-							Arcade(Yearly) <br /> <span>change</span>
+						<h4 className='plan first-letter'>
+							{type ? type : 'no type'}({plan?plan:'no plan'}) <br /> <span>change</span>
 						</h4>
-						<span className='price'>$90/yr</span>
+						<span className='price'>${price}/{plan === 'monthly' ? 'mo' : 'yr'}</span>
 					</div>
 					<hr />
 					<div className='summary-details'>
 						<div className='service'>
 							<span>Online service</span>
-							<span className='service-price'>+$10/yr</span>
+							<span className='service-price'>+$10/{plan === 'monthly' ? 'mo' : 'yr'}</span>
 						</div>
 						<div className='storage'>
 							<span>Large storage</span>
-							<span className='storage-price'>+$20/yr</span>
+							<span className='storage-price'>+$20/{plan === 'monthly' ? 'mo' : 'yr'}</span>
 						</div>
 					</div>
 				</div>
 
 				<div className='summary-total'>
-					<span className='total-text'>Total (per year)</span>
-					<span className='total-price'>$120/yr</span>
+					<span className='total-text'>Total {plan === 'monthly' ? '(per month)' : '(per year)'} </span>
+					<span className='total-price'>$120/{plan === 'monthly' ? 'mo' : 'yr'}</span>
 				</div>
 			</div>
 

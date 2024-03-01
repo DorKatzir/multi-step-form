@@ -537,6 +537,10 @@ input:checked + .slider:before {
 
 /**  END Switch
  -------------------------------------*/
+.first-letter {
+  text-transform: capitalize;
+}
+
 .attribution {
   padding-block: 1rem;
   font-size: 11px;
