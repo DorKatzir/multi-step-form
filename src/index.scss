@@ -644,7 +644,7 @@ input:checked + .slider:before {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-                height: 100px;
+                height: 80px;
 
                 .step_number{
                     width: 35px;
@@ -672,20 +672,39 @@ input:checked + .slider:before {
         }
         .main{
             background-color: #fff;
-            margin: 100px auto;
+            margin: 70px auto;
             width: fit-content;
-            position: relative;
+            
             .content{
                 padding-top: 0;
                 padding-block-end: 1rem;
                 padding-inline: 2rem;
                 gap: 10px;
+                .text {
+                    h2{
+                        font-size: 1.7rem;
+                    }
+                }
                 .cta{
-                    position: absolute;
-                    bottom: -100px;
-                    right: 0;
-                    
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
                     max-width: 450px;
+                    margin: 0 auto;
+                    position: absolute;
+                    inset: 0;
+                    // padding-inline: 1.8rem;
+                    padding-block-end: 2rem;
+                    z-index: -1;
+                    button{
+                        width: 100px;
+                        height: 40px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                    }
+                    .back-btn{
+                        padding-block-end: 1rem;
+                    }
                 }
                  .form{
                     margin-bottom: auto;
@@ -727,6 +746,9 @@ input:checked + .slider:before {
                         }
                         input{
                             text-transform: capitalize;
+                            &::placeholder{
+                                text-transform: none;
+                            }
                         }
                         .error{
                             border: 1px solid var(--Strawberry-red);
@@ -742,14 +764,31 @@ input:checked + .slider:before {
                         gap: .35rem;
                         flex-direction: column;
                         & :nth-child(2) {
-                            height: 35px;
+                            height: 40px;
                         }
                     }
                 }
             }
         }
+    }
 
+    .attribution{
+        padding-block-start: .5rem;
+        font-size: 11px; 
+        text-align: left;
+        a { color: hsl(228, 45%, 44%); }
+    }
 
+    .white-bg{
+        width: 100dvw;
+        height: 100px;
+        background-color: var(--White);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -2;
         
     }
+
 }

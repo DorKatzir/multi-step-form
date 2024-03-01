@@ -617,6 +617,7 @@ function Footer() {
     <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
         Coded by <a href="#">Dror Katzir</a>.
+		<div className="white-bg"></div>
       </div>
   )
 }
