@@ -433,14 +433,22 @@ function StepThree({onNextStep, onPrevStep}) {
 // STEP 4 //////////////////////////////////////////////
 function StepFour({onNextStep, onPrevStep}) {
 
-
+	const [price, setPrice] = useState(0)
+	const [servicePrice, setServicePrice] = useState(0)
+	const [storagePrice, setStoragePrice] = useState(0)
+	const [profilePrice, setProfilePrice] = useState(0)
 
 	const plan = localStorage.getItem('plan') || 'none' // yearly, monthly
 	const type = localStorage.getItem('type') || 'none' // arcade, advanced, pro
 
-	const [price, setPrice] = useState(0)
-
+	
+	
 	useEffect(()=>{
+		
+		const service = localStorage.getItem('addOn-1') || ''
+		const storage = localStorage.getItem('addOn-2') || ''
+		const profile = localStorage.getItem('addOn-3') || ''
+
 		const monthly = {
 			arcade: 9,
 			advanced: 12,
@@ -452,6 +460,27 @@ function StepFour({onNextStep, onPrevStep}) {
 			advanced: 120,
 			pro: 150,
 		}
+
+		if (service.length > 0 && plan === 'yearly') {
+			setServicePrice(10)
+		}
+		if (storage.length > 0 && plan === 'yearly') {
+			setStoragePrice(20)
+		}
+		if (profile.length > 0 && plan === 'yearly') {
+			setProfilePrice(20)
+		}
+	
+		if (service.length > 0 && plan === 'monthly') {
+			setServicePrice(1)
+		}
+		if (storage.length > 0 && plan === 'monthly') {
+			setStoragePrice(2)
+		}
+		if (profile.length > 0 && plan === 'monthly') {
+			setProfilePrice(2)
+		}
+
 
 		if (type === 'arcade' && plan === 'yearly') {
 			setPrice(yearly.arcade)
@@ -503,6 +532,12 @@ function StepFour({onNextStep, onPrevStep}) {
 							<span>Large storage</span>
 							<span className='storage-price'>+$20/{plan === 'monthly' ? 'mo' : 'yr'}</span>
 						</div>
+
+						<div className='profile'>
+							<span>Customizable Profile</span>
+							<span className='profile-price'>+$20/{plan === 'monthly' ? 'mo' : 'yr'}</span>
+						</div>
+
 					</div>
 				</div>
 

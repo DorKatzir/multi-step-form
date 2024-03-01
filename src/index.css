@@ -456,6 +456,14 @@ body {
 .main .content .summary-wrapper .summary-content .summary-details .storage .storage-price {
   color: var(--Marine-blue);
 }
+.main .content .summary-wrapper .summary-content .summary-details .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .content .summary-wrapper .summary-content .summary-details .profile .profile-price {
+  color: var(--Marine-blue);
+}
 .main .content .summary-wrapper .summary-total {
   padding: 25px;
   display: flex;

@@ -489,6 +489,15 @@ body{
                         }
                     }
 
+                    .profile{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between; 
+                        .profile-price{
+                            color: var(--Marine-blue);
+                        }
+                    }
+
                 }
 
             }
@@ -591,13 +600,6 @@ input:checked + .slider:before {
  .first-letter{
     text-transform: capitalize;
  }
-
-
-
-
-
-
-
 
 
 
