@@ -1,19 +1,15 @@
 :root{
-    // Primary
     --Marine-blue: hsl(213, 96%, 18%);
     --Purplish-blue: hsl(243, 100%, 62%);
     --Pastel-blue: hsl(228, 100%, 84%);
     --Light-blue: hsl(206, 94%, 87%);
     --Strawberry-red: hsl(354, 84%, 57%);
 
-    // Neutral
     --Cool-gray: hsl(231, 11%, 63%);
     --Light-gray: hsl(229, 24%, 87%);
     --Magnolia: hsl(217, 100%, 97%);
     --Alabaster: hsl(231, 100%, 99%);
     --White: hsl(0, 0%, 100%);
-    
-
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -618,7 +614,6 @@ input:checked + .slider:before {
 }
 
 
-
 /////   MEDIA QUERIES    /////////////////////////////////////////
 @media (width < 800px) { 
     .container{
@@ -673,10 +668,11 @@ input:checked + .slider:before {
 
         }
         .main{
-            background-color: #fff;
+            background-color: var(--White);
             margin: 98px auto;
             width: 343px;
             height: 380px;
+            box-shadow: 0px 0px 10px hsla(0, 0%, 0%, .1);
             
             .content{
                 padding-top: 0;
@@ -780,6 +776,15 @@ input:checked + .slider:before {
                         & :nth-child(2) {
                             height: 38px;
                         }
+                    }
+                }
+                .plan-cards{
+                    flex-direction: column;
+                    .card{
+                        all:unset;
+                        height: 50px;
+                        display: flex;
+                        gap: 1rem;
                     }
                 }
             }
