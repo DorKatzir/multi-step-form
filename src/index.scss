@@ -717,7 +717,7 @@ input:checked + .slider:before {
                             font-size: 14px;
                         }
                         .back-btn{
-                            padding-block-end: 1rem;
+                            padding-inline-start: .6rem;
                         }
             
                     }
@@ -819,11 +819,13 @@ input:checked + .slider:before {
     }
 
     footer{
-        position: absolute;
-        bottom: -1.6rem;
+        position: fixed;
+        bottom: -1rem;
+        left: 0;
+        
         width: 100%;
         text-align: center;
-        background-color: var(--Magnolia);
+        // background-color: var(--Magnolia);
         .attribution{
             padding-block: .3rem;
             font-size: 11px; 
