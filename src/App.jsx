@@ -213,8 +213,10 @@ function StepOne({ onNextStep }) {
 
 			</div>
 
-			<div className='cta'>
-				<button onClick={handleSubmit}>Next Step</button>
+			<div className="buttons">
+				<div className='cta'>
+					<button onClick={handleSubmit}>Next Step</button>
+				</div>
 			</div>
 		</>
 	)
@@ -334,11 +336,13 @@ function StepTwo({onNextStep, onPrevStep}) {
 				</div>
 			</div>
 
-			<div className='cta'>
-				<span className='back-btn'>
-					<a onClick={onPrevStep}>Go Back</a>
-				</span>
-				<button onClick={onNextStep}>Next Step</button>
+			<div className="buttons">
+				<div className='cta'>
+					<span className='back-btn'>
+						<a onClick={onPrevStep}>Go Back</a>
+					</span>
+					<button onClick={onNextStep}>Next Step</button>
+				</div>
 			</div>
 		</>
 	)
@@ -425,11 +429,13 @@ function StepThree({onNextStep, onPrevStep}) {
 
 			</div>
 
-			<div className='cta'>
-				<span className='back-btn'>
-					<a onClick={onPrevStep}>Go Back</a>
-				</span>
-				<button onClick={onNextStep}>Next Step</button>
+			<div className="buttons">
+				<div className='cta'>
+					<span className='back-btn'>
+						<a onClick={onPrevStep}>Go Back</a>
+					</span>
+					<button onClick={onNextStep}>Next Step</button>
+				</div>
 			</div>
 		</>
 	)
@@ -568,13 +574,15 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 				</div>
 			</div>
 
-			<div className='cta'>
-				<span className='back-btn'>
-					<a onClick={onPrevStep}>Go Back</a>
-				</span>
-				<button onClick={onNextStep} className='confirm-btn'>
-					Confirm
-				</button>
+			<div className="buttons">
+				<div className='cta'>
+					<span className='back-btn'>
+						<a onClick={onPrevStep}>Go Back</a>
+					</span>
+					<button onClick={onNextStep} className='confirm-btn'>
+						Confirm
+					</button>
+				</div>
 			</div>
 		</>
 	)
@@ -614,10 +622,12 @@ function StepFive() {
 
 function Footer() {
   return (
+	<footer>
     <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
         Coded by <a href="#">Dror Katzir</a>.
 		<div className="white-bg"></div>
       </div>
+	</footer>
   )
 }

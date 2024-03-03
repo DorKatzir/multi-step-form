@@ -619,8 +619,7 @@ input:checked + .slider:before {
   .container .main {
     background-color: var(--White);
     margin: 98px auto;
-    width: 343px;
-    height: 380px;
+    width: 375px;
     box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.1);
   }
   .container .main .content {
@@ -642,25 +641,28 @@ input:checked + .slider:before {
     margin-top: 0;
     line-height: 1.5;
   }
-  .container .main .content .cta {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    max-width: 450px;
-    margin: 0 auto;
+  .container .main .content .buttons {
     position: absolute;
-    inset: 0;
-    padding-inline: 1.3rem;
-    padding-block-end: 2rem;
-    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: var(--White);
   }
-  .container .main .content .cta button {
+  .container .main .content .buttons .cta {
+    width: 375px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding-block: 1rem;
+  }
+  .container .main .content .buttons .cta button {
     width: 100px;
     height: 40px;
     border-radius: 5px;
     font-size: 14px;
   }
-  .container .main .content .cta .back-btn {
+  .container .main .content .buttons .cta .back-btn {
     padding-block-end: 1rem;
   }
   .container .main .content .form {
@@ -731,32 +733,36 @@ input:checked + .slider:before {
   }
   .container .main .content .plan-cards {
     flex-direction: column;
+    gap: 10px;
   }
   .container .main .content .plan-cards .card {
     all: unset;
-    height: 50px;
-    display: flex;
-    gap: 1rem;
+    position: relative;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--Light-gray);
+    cursor: pointer;
+    gap: 5px;
   }
-  .attribution {
+  .container .main .content .plan-cards .card .icon {
     position: absolute;
-    left: 0;
-    bottom: 5px;
-    right: 0;
-    padding-block-start: 0.5rem;
+    left: 1rem;
+  }
+  .container .main .content .plan-cards .card .text, .container .main .content .plan-cards .card .price, .container .main .content .plan-cards .card .bonus {
+    margin-inline-start: 3.3rem;
+  }
+  footer {
+    position: absolute;
+    bottom: -1.6rem;
+    width: 100%;
+    text-align: center;
+    background-color: var(--Magnolia);
+  }
+  footer .attribution {
+    padding-block: 0.3rem;
     font-size: 11px;
   }
-  .attribution a {
+  footer .attribution a {
     color: hsl(228, 45%, 44%);
-  }
-  .white-bg {
-    width: 100dvw;
-    height: 100px;
-    background-color: var(--White);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -2;
   }
 }
