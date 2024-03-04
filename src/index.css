@@ -15,10 +15,23 @@
   box-sizing: border-box;
 }
 
+html, body, .row {
+  min-height: 95vh;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background-color: var(--Magnolia);
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
+  letter-spacing: 0.02ch;
+  line-height: 1.5;
 }
 
 .ubuntu-regular {
@@ -40,15 +53,14 @@ body {
 }
 
 .container {
-  margin: 0 auto;
   background-color: var(--White);
   max-width: 940px;
+  width: 100%;
   border-radius: 15px;
   box-shadow: 0px 0px 40px var(--Light-gray);
   padding: 1rem;
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
 }
 
 .sidebar {
@@ -567,6 +579,12 @@ input:checked + .slider:before {
 }
 
 @media (width < 800px) {
+  html, body, .row {
+    min-height: unset;
+  }
+  .row {
+    all: unset;
+  }
   .container {
     all: unset;
     height: 667px;
@@ -619,7 +637,7 @@ input:checked + .slider:before {
   .container .main {
     background-color: var(--White);
     margin: 98px auto;
-    width: 375px;
+    max-width: 375px;
     box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.1);
   }
   .container .main .content {
@@ -650,7 +668,7 @@ input:checked + .slider:before {
     background-color: var(--White);
   }
   .container .main .content .buttons .cta {
-    width: 375px;
+    max-width: 360px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -671,7 +689,7 @@ input:checked + .slider:before {
   }
   .container .main .content .form label {
     color: var(--Marine-blue);
-    font-size: 12px;
+    font-size: 14px;
   }
   .container .main .content .form input {
     all: unset;
@@ -731,25 +749,60 @@ input:checked + .slider:before {
   .container .main .content .form .name :nth-child(2), .container .main .content .form .email :nth-child(2), .container .main .content .form .phone :nth-child(2) {
     height: 38px;
   }
-  .container .main .content .plan-cards {
-    flex-direction: column;
-    gap: 10px;
+  .container .main .content .plan-wrapper {
+    gap: 15px;
   }
-  .container .main .content .plan-cards .card {
+  .container .main .content .plan-wrapper .plan-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .container .main .content .plan-wrapper .plan-cards .card {
     all: unset;
     position: relative;
-    padding: 1rem;
+    padding-inline: 15px;
+    padding-block: 10px;
     border-radius: 8px;
     border: 1px solid var(--Light-gray);
     cursor: pointer;
-    gap: 5px;
   }
-  .container .main .content .plan-cards .card .icon {
+  .container .main .content .plan-wrapper .plan-cards .card .icon {
     position: absolute;
-    left: 1rem;
+    left: 15px;
   }
-  .container .main .content .plan-cards .card .text, .container .main .content .plan-cards .card .price, .container .main .content .plan-cards .card .bonus {
+  .container .main .content .plan-wrapper .plan-cards .card .text, .container .main .content .plan-wrapper .plan-cards .card .price, .container .main .content .plan-wrapper .plan-cards .card .bonus {
     margin-inline-start: 3.3rem;
+  }
+  .container .main .content .plan-wrapper .plan-cards .card .text {
+    font-size: 16px;
+  }
+  .container .main .content .plan-wrapper .plan-cards .card .bonus {
+    font-size: 13px;
+  }
+  .container .main .content .plan-wrapper .plan-cards .card .price {
+    font-size: 14px;
+  }
+  .container .main .content .plan-wrapper .plan-cards .card.active {
+    background-color: var(--Magnolia);
+    border: 1px solid var(--Marine-blue);
+  }
+  .container .main .content .plan-wrapper .plan {
+    height: auto;
+    padding: 10px;
+  }
+  .container .main .content .add-ons-wrapper .card {
+    padding-inline: 15px;
+    padding-block: 15px;
+    gap: 10px;
+  }
+  .container .main .content .add-ons-wrapper .card .addon-text h3 {
+    font-size: 16px;
+  }
+  .container .main .content .add-ons-wrapper .card .addon-text p {
+    font-size: 12px;
+  }
+  .container .main .content .thank-you-wrapper {
+    padding-inline: 10px;
+    height: 420px;
   }
   footer {
     position: fixed;

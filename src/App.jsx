@@ -29,7 +29,9 @@ export default function App() {
 
   return (
 		<>
-			<div className='container'>
+			<div className="row">
+
+				<div className='container'>
 				<Sidebar stepCounter={stepCounter} />
 				<div className='main'>
 					<div className='content'>
@@ -40,25 +42,26 @@ export default function App() {
 
 						{ step === 2 
 								? <StepTwo onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
-              					: null }
+								: null }
 
 						{ step === 3 
 								? <StepThree onNextStep={handleNextStep} onPrevStep={handlePrevStep} /> 
-              					: null }
+								: null }
 
 						{ step === 4 
 								? <StepFour onNextStep={handleNextStep} onPrevStep={handlePrevStep} onChangeStep={handleChangeStep} /> 
-              					: null }
+								: null }
 
 						{ step === 5 
 								? <StepFive /> 
-              					: null }
+								: null }
 
 					</div>
 				</div>
-			</div>
+				</div>
 
-			<Footer />
+				<Footer />
+			</div>
 		</>
   )
 }

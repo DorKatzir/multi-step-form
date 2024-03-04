@@ -15,10 +15,22 @@
   box-sizing: border-box;
 }
 
+html, body, .row {
+    min-height: 95vh;
+}
+.row {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 body{
     background-color: var(--Magnolia);
     font-family: "Ubuntu", sans-serif;
     font-size: 16px;
+    letter-spacing: 0.02ch;
+    line-height: 1.5;
 }
 
 .ubuntu-regular {
@@ -39,16 +51,20 @@ body{
   font-style: normal;
 }
 
+
+
 .container{
-    margin: 0 auto;
+    
+    // margin: 0 auto;
     background-color: var(--White);
     max-width: 940px;
+    width: 100%;
     border-radius: 15px;
     box-shadow: 0px 0px 40px var(--Light-gray);
     padding: 1rem;
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
+
 }
 
 
@@ -616,6 +632,15 @@ input:checked + .slider:before {
 
 /////   MEDIA QUERIES    /////////////////////////////////////////
 @media (width < 800px) { 
+
+    html, body, .row {
+        min-height: unset;
+    }
+
+    .row {
+        all: unset;
+    }
+
     .container{
         all: unset;
         // width: 343px;
@@ -670,8 +695,7 @@ input:checked + .slider:before {
         .main{
             background-color: var(--White);
             margin: 98px auto;
-            width: 375px;
-            // height: 380px;
+            max-width: 375px;
             box-shadow: 0px 0px 10px hsla(0, 0%, 0%, .1);
             
             .content{
@@ -699,12 +723,13 @@ input:checked + .slider:before {
                     position: absolute;
                     bottom: 0;
                     left: 0;
-                    width: 100%;
+                   width: 100%;
                     height: 75px;
                     background-color: var(--White);
+                    
                     // z-index: -2;
                     .cta{
-                        width: 375px;
+                        max-width: 360px;
                         margin: 0 auto;
                         display: flex;
                         align-items: center;
@@ -727,7 +752,7 @@ input:checked + .slider:before {
                     font-weight: 500;
                     label{
                         color: var(--Marine-blue);
-                        font-size: 12px; 
+                        font-size: 14px; 
                     }
                 
                     input{
@@ -785,34 +810,66 @@ input:checked + .slider:before {
                         }
                     }
                 }
-                .plan-cards{
-                    flex-direction: column;
-                    gap: 10px;
-                    .card{
-                        all: unset;
-                        position: relative;
-                        // display: flex;
-                        // flex-direction: column;
-                        // height: 75px !important;
-                        // justify-content: flex-start;
-                        // gap: .2rem;
-
-                        // height: fit-content;
-                        padding: 1rem;
-                        border-radius: 8px;
-                        border: 1px solid var(--Light-gray);
-                        cursor: pointer;
-                        
-                        gap: 5px;
-                        .icon{
-                            position: absolute;
-                            // top: 18px;
-                            left: 1rem;
+                .plan-wrapper{
+                    gap: 15px;
+                    
+                    .plan-cards{
+                        flex-direction: column;
+                        gap: 15px;
+                        .card{
+                            all: unset;
+                            position: relative;
+                            padding-inline: 15px;
+                            padding-block: 10px;
+                            border-radius: 8px;
+                            border: 1px solid var(--Light-gray);
+                            cursor: pointer;
+                            .icon{
+                                position: absolute;
+                                left: 15px;
+                            }
+                            .text, .price, .bonus{
+                                margin-inline-start: 3.3rem;
+                            }
+                            .text{
+                                font-size: 16px;
+                            }
+                            .bonus{
+                                font-size: 13px;
+                            }
+                            .price{
+                                font-size: 14px;
+                            }
                         }
-                        .text, .price, .bonus{
-                            margin-inline-start: 3.3rem;
+                        .card.active{
+                            background-color: var(--Magnolia);
+                            border: 1px solid var(--Marine-blue);
                         }
                     }
+                    .plan{
+                        height: auto;
+                        padding: 10px;
+                    }
+                }
+                .add-ons-wrapper{
+                    .card{
+                        padding-inline: 15px;
+                        padding-block: 15px;
+                        gap: 10px;
+                        .addon-text{
+                            h3{
+                                font-size: 16px;
+                            }
+                            p{
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .thank-you-wrapper{
+                    padding-inline: 10px;
+                    height: 420px;
                 }
             }
         }
