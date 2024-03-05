@@ -1,0 +1,59 @@
+.form {
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form .field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  display: inline;
+  order: 2;
+}
+
+span {
+  margin-left: auto;
+  margin-block-end: -20px;
+  font-size: 12px;
+  color: crimson;
+  float: right;
+  order: 1;
+  display: none;
+}
+
+input {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 16px;
+  order: 3;
+}
+
+input::-moz-placeholder {
+  color: lightgray;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+input:focus {
+  outline: 1px solid rebeccapurple;
+}
+
+input:invalid {
+  outline: none;
+  border: 1px solid crimson;
+}
+
+input:invalid ~ span {
+  display: block;
+}
