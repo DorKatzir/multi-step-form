@@ -179,6 +179,7 @@ body{
                 &::placeholder{
                     color: var(--Cool-gray);
                     font-weight: 400;
+                    text-transform: none;
                 }
 
             }

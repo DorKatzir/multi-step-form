@@ -168,10 +168,12 @@ body {
 .main .content .form input::-moz-placeholder {
   color: var(--Cool-gray);
   font-weight: 400;
+  text-transform: none;
 }
 .main .content .form input::placeholder {
   color: var(--Cool-gray);
   font-weight: 400;
+  text-transform: none;
 }
 .main .content .form .name .label, .main .content .form .email .label, .main .content .form .phone .label {
   display: flex;

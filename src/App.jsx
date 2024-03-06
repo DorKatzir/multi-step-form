@@ -121,12 +121,12 @@ function StepOne({ onNextStep }) {
   const [errorPhone, setErrorPhone] = useState(Boolean)
   
   function handleNameChange(e){
-		const inputName = e.target.value.trim()
+		const inputName = e.target.value
 		setUser({ ...user, name: inputName })
 		
-		const nameFormat = /^[A-Za-z]+$/
+		const nameFormat = '^[A-Za-z0-9 ]{3,16}$'
 
-		if (inputName.match(nameFormat) && inputName.length > 2 && inputName.length < 20) {
+		if (inputName.match(nameFormat)) {
 			setErrorName(false)
 		} else {
 			setErrorName(true)
@@ -137,7 +137,7 @@ function StepOne({ onNextStep }) {
 		const inputEmail = e.target.value
 		setUser({ ...user, email: inputEmail })
 
-		const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+		const mailformat = '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'
 
 		if (inputEmail.match(mailformat)) {
 			setErrorEmail(false)
@@ -147,17 +147,18 @@ function StepOne({ onNextStep }) {
 
   }
 
-  function handlePhoneChange(e){
-		const inputPhone = e.target.value
-		setUser({ ...user, phone: inputPhone })
+function handlePhoneChange(e) {
+	const inputPhone = e.target.value
+	setUser({ ...user, phone: inputPhone })
 
-		const phoneFormat = /^\d{10}$/
+	const phoneFormat = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/
+	
 
-		if (inputPhone.match(phoneFormat)) {
-			setErrorPhone(false)
-		} else {
-			setErrorPhone(true)
-		}
+	if (inputPhone.match(phoneFormat)) {
+		setErrorPhone(false)
+	} else {
+		setErrorPhone(true)
+	}
 }
 
 
@@ -195,22 +196,22 @@ function StepOne({ onNextStep }) {
 
 				<div className='name'>
 					<div className="label">
-            <label>Name</label>{ errorName && <span>This Field is required</span>}
-          </div>
+           			 <label>Name</label>{ errorName && <span>Name must be 3-6 characters</span>}
+          			</div>
 					<input className={ errorName ? 'error' : ''} type='text' placeholder='e.g. Stephen King' value={user.name} onChange={handleNameChange}/>
 				</div>
 
 				<div className='email'>
 					<div className="label">
-            <label>Email Address</label>{errorEmail && <span>This Field is required</span>}
-          </div>
+            			<label>Email Address</label>{errorEmail && <span>Please insert a valid email addres</span>}
+          			</div>
 					<input className={errorEmail ? 'error' : ''} type='text' placeholder='e.g. stephenking@lorem.com' value={user.email} onChange={handleEmailChange}/>
 				</div>
 
 				<div className='phone'>
 					<div className="label">
-            <label>Phone Number</label>{ errorPhone && <span>This Field is required</span>}
-          </div>
+            		<label>Phone Number</label>{ errorPhone && <span>Please insert a valid phone number</span>}
+          		</div>
 					<input className={errorPhone ? 'error' : ''} type='text' placeholder='e.g. +1 234 567 890' value={user.phone} onChange={handlePhoneChange}/>
 				</div>
 
