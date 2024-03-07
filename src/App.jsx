@@ -186,7 +186,7 @@ function handlePhoneChange(e) {
 	return (
 		<>
 			<div className='text'>
-				<h2>Personal info</h2>
+				<h1>Personal info</h1>
 				<p>
 					Please provide your name, email address, and phone number.
 				</p>
@@ -291,7 +291,7 @@ function StepTwo({onNextStep, onPrevStep}) {
 	return (
 		<>
 			<div className='text'>
-				<h2>Select your plan</h2>
+				<h1>Select your plan</h1>
 				<p>You have the option of monthly or yearly billing.</p>
 			</div>
 
@@ -389,7 +389,7 @@ function StepThree({onNextStep, onPrevStep}) {
 	return (
 		<>
 			<div className='text'>
-				<h2>Pick add-ons</h2>
+				<h1>Pick add-ons</h1>
 				<p>Add-ons help enhance your gaming experience.</p>
 			</div>
 
@@ -518,7 +518,7 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 	return (
 		<>
 			<div className='text'>
-				<h2>Finishing up</h2>
+				<h1>Finishing up</h1>
 				<p>Double-check everything looks OK before confirming.</p>
 			</div>
 
@@ -613,7 +613,7 @@ function StepFive() {
 				  <img src={iconThankYou} alt='icon-thank-you'/>
         </div>
 
-				<h2>Thank you!</h2>
+				<h1>Thank you!</h1>
 				<p>
 					Thanks for confirming your subscription! We hope you have
 					fun using our platform. If you ever need support, please
