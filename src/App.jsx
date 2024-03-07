@@ -29,12 +29,12 @@ export default function App() {
 
   return (
 		<>
-			<div className="row">
+			<div role='row' className="row">
 
-				<div className='container'>
+				<div role='container' className='container'>
 				<Sidebar stepCounter={stepCounter} />
-				<div className='main'>
-					<div className='content'>
+				<div role='main' className='main'>
+					<div role='content' className='content'>
 
 						{ step === 1 
 								? <StepOne onNextStep={handleNextStep} /> 
@@ -69,9 +69,9 @@ export default function App() {
 // SIDEBAR ///////////////////////////////////////////////
 function Sidebar({stepCounter}) {
   return (
-		<div className='sidebar'>
+		<div role='sidebar' className='sidebar'>
 
-			<div className='step'>
+			<div role='step' className='step'>
 				<span className={ (stepCounter === 1) ? 'step_number active' : 'step_number' }>1</span>
 				<span className='step_box'>
 					<span className='title'>Step 1</span>
@@ -79,7 +79,7 @@ function Sidebar({stepCounter}) {
 				</span>
 			</div>
 
-			<div className='step'>
+			<div role='step' className='step'>
 				<span className={ (stepCounter === 2) ? 'step_number active' : 'step_number' }>2</span>
 				<span className='step_box'>
 					<span className='title'>Step 2</span>
@@ -87,7 +87,7 @@ function Sidebar({stepCounter}) {
 				</span>
 			</div>
 
-			<div className='step'>
+			<div role='step' className='step'>
 				<span className={ (stepCounter === 3) ? 'step_number active' : 'step_number' }>3</span>
 				<span className='step_box'>
 					<span className='title'>Step 3</span>
@@ -95,7 +95,7 @@ function Sidebar({stepCounter}) {
 				</span>
 			</div>
 
-			<div className='step'>
+			<div role='step' className='step'>
 				<span className={ (stepCounter === 4 || stepCounter === 5) ? 'step_number active' : 'step_number' }>4</span>
 				<span className='step_box'>
 					<span className='title'>Step 4</span>
@@ -185,31 +185,31 @@ function handlePhoneChange(e) {
 
 	return (
 		<>
-			<div className='text'>
-				<h2>Personal info</h2>
+			<div role='title' className='text'>
+				<h1>Personal info</h1>
 				<p>
 					Please provide your name, email address, and phone number.
 				</p>
 			</div>
 
-			<div className='form'>
+			<div role='form' className='form'>
 
-				<div className='name'>
-					<div className="label">
+				<div role='name' className='name'>
+					<div role='label' className="label">
            			 <label>Name</label>{ errorName && <span>Name must be 3-6 characters</span>}
           			</div>
 					<input className={ errorName ? 'error' : ''} type='text' placeholder='e.g. Stephen King' value={user.name} onChange={handleNameChange}/>
 				</div>
 
-				<div className='email'>
-					<div className="label">
+				<div role='email' className='email'>
+					<div role='label' className="label">
             			<label>Email Address</label>{errorEmail && <span>Please insert a valid email addres</span>}
           			</div>
 					<input className={errorEmail ? 'error' : ''} type='text' placeholder='e.g. stephenking@lorem.com' value={user.email} onChange={handleEmailChange}/>
 				</div>
 
-				<div className='phone'>
-					<div className="label">
+				<div role='phone' className='phone'>
+					<div role='lable' className="label">
             		<label>Phone Number</label>{ errorPhone && <span>Please insert a valid phone number</span>}
           		</div>
 					<input className={errorPhone ? 'error' : ''} type='text' placeholder='e.g. +1 234 567 890' value={user.phone} onChange={handlePhoneChange}/>
@@ -217,9 +217,9 @@ function handlePhoneChange(e) {
 
 			</div>
 
-			<div className="buttons">
-				<div className='cta'>
-					<button onClick={handleSubmit}>Next Step</button>
+			<div role='buttons' className="buttons">
+				<div role='cta' className='cta'>
+					<button role='next' onClick={handleSubmit}>Next Step</button>
 				</div>
 			</div>
 		</>
@@ -290,62 +290,65 @@ function StepTwo({onNextStep, onPrevStep}) {
   //////////////////////////////////////////////
 	return (
 		<>
-			<div className='text'>
-				<h2>Select your plan</h2>
+			<div role='title' className='text'>
+				<h1>Select your plan</h1>
 				<p>You have the option of monthly or yearly billing.</p>
 			</div>
 
-			<div className='plan-wrapper'>
-				<div className='plan-cards'>
-					<div className={arcade ? 'card active' : 'card'} onClick={handleArcade}>
-						<div className='icon'>
+			<div role='plan-wrapper' className='plan-wrapper'>
+				<div role='plan-cards' className='plan-cards'>
+
+					<div role='plan-card' className={arcade ? 'card active' : 'card'} onClick={handleArcade}>
+						<div role='plan-icon' className='icon'>
 							<img src={iconArcade} alt='icon arcade' />
 						</div>
-						<div className='text'>Arcade</div>
+						<div role='plan-name' className='text'>Arcade</div>
 
-						<div className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
+						<div role='plan-price' className='price'>{plan === 'monthly' ? monthly.arcade : yearly.arcade}</div>
 						{ plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
-					<div className={advanced ? 'card active' : 'card'} onClick={handleAdvanced}>
-						<div className='icon'>
+
+					<div role='plan-card' className={advanced ? 'card active' : 'card'} onClick={handleAdvanced}>
+						<div role='plan-icon' className='icon'>
 							<img src={iconAdvanced} alt='icon advanced' />
 						</div>
-						<div className='text'>Advanced</div>
+						<div role='plan-name' className='text'>Advanced</div>
 						
-						<div className='price'>{plan === 'monthly' ? monthly.advanced : yearly.advanced}</div>
+						<div role='plan-price' className='price'>{plan === 'monthly' ? monthly.advanced : yearly.advanced}</div>
             { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
-					<div className={pro ? 'card active' : 'card'} onClick={handlePro}>
-						<div className='icon'>
+					<div role='plan-card' className={pro ? 'card active' : 'card'} onClick={handlePro}>
+						<div role='plan-icon' className='icon'>
 							<img src={iconPro} alt='icon pro' />
 						</div>
-						<div className='text'>Pro</div>
+						<div role='plan-name' className='text'>Pro</div>
             
-						<div className='price'>{plan === 'monthly' ? monthly.pro : yearly.pro}</div>
+						<div role='plan-price' className='price'>{plan === 'monthly' ? monthly.pro : yearly.pro}</div>
             { plan === 'yearly' && <span className='bonus'> {yearly.bonus} </span> }
 
 					</div>
 				</div>
-				<div className='plan'>
-					<span className={plan === 'monthly' ? 'blue' : ''}>Monthly</span>
-					<span>
+
+				<div role='plan-switch' className='plan'>
+					<span role='monthly' className={plan === 'monthly' ? 'blue' : ''}>Monthly</span>
+					<span role='switch'>
 						<label className='switch'>
 							<input type='checkbox' checked={plan === 'yearly' ? 'checked' : ''} onChange={handlePlan} />
 							<span className='slider round'></span>
 						</label>
 					</span>
-					<span className={plan === 'yearly' ? 'blue' : ''}>Yearly</span>
+					<span role='yearly' className={plan === 'yearly' ? 'blue' : ''}>Yearly</span>
 				</div>
 			</div>
 
-			<div className="buttons">
-				<div className='cta'>
+			<div role='buttons' className="buttons">
+				<div role='cta' className='cta'>
 					<span className='back-btn'>
 						<a onClick={onPrevStep}>Go Back</a>
 					</span>
-					<button onClick={onNextStep}>Next Step</button>
+					<button role='next' onClick={onNextStep}>Next Step</button>
 				</div>
 			</div>
 		</>
@@ -388,57 +391,57 @@ function StepThree({onNextStep, onPrevStep}) {
 
 	return (
 		<>
-			<div className='text'>
+			<div role='title' className='text'>
 				<h2>Pick add-ons</h2>
 				<p>Add-ons help enhance your gaming experience.</p>
 			</div>
 
-			<div className='add-ons-wrapper'>
+			<div role='add-ons-wrapper' className='add-ons-wrapper'>
 
-				<div className={ addOnServices.length > 0 ? 'card active' :'card' }>
+				<div role='add-on-services' className={ addOnServices.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
 						<input type='checkbox' checked={addOnServices} value={addOnServices} onChange={handleAddOnServices} />
 						<span className='checkmark'></span>
 					</label>
-					<div className='addon-text'>
+					<div role='add-on-text' className='addon-text'>
 						<h3>Online service</h3>
 						<p>Access to multiplayer games</p>
 					</div>
-					<div className='addon-price'>{ plan === 'monthly' ? '+$1/mo' : '+$10/yr' }</div>
+					<div role='add-on-price' className='addon-price'>{ plan === 'monthly' ? '+$1/mo' : '+$10/yr' }</div>
 				</div>
 
-				<div className={ addOnStorage.length > 0 ? 'card active' :'card' }>
+				<div role='add-on-storage' className={ addOnStorage.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
 						<input type='checkbox' checked={addOnStorage} value={addOnStorage} onChange={handleAddOnStorage} />
 						<span className='checkmark'></span>
 					</label>
-					<div className='addon-text'>
+					<div role='add-on-text' className='addon-text'>
             			<h3>Larger storage</h3>
 						<p>Extra 1TB of cloud save</p>
 					</div>
-					<div className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
+					<div role='add-on-price' className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
 				</div>
 
-				<div className={ addOnProfile.length > 0 ? 'card active' :'card' }>
+				<div role='add-ons-profile' className={ addOnProfile.length > 0 ? 'card active' :'card' }>
 					<label className='addon-check'>
 						<input type='checkbox' checked={addOnProfile} value={addOnProfile} onChange={handleAddOnProfile} />
 						<span className='checkmark'></span>
 					</label>
-					<div className='addon-text'>
+					<div role='add-on-text' className='addon-text'>
             			<h3>Customizable Profile</h3>
             			<p>Custom theme on your profile</p>
 					</div>
-					<div className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
+					<div role='add-on-price' className='addon-price'>{ plan === 'monthly' ? '+$2/mo' : '+$20/yr' }</div>
 				</div>
 
 			</div>
 
-			<div className="buttons">
-				<div className='cta'>
+			<div role='buttons' className="buttons">
+				<div role='cta' className='cta'>
 					<span className='back-btn'>
 						<a onClick={onPrevStep}>Go Back</a>
 					</span>
-					<button onClick={onNextStep}>Next Step</button>
+					<button role='next' onClick={onNextStep}>Next Step</button>
 				</div>
 			</div>
 		</>
@@ -517,28 +520,28 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 
 	return (
 		<>
-			<div className='text'>
+			<div role='title' className='text'>
 				<h2>Finishing up</h2>
 				<p>Double-check everything looks OK before confirming.</p>
 			</div>
 
-			<div className='summary-wrapper'>
-				<div className='summary-content'>
-					<div className='summary-plan'>
+			<div role='summary-wrapper' className='summary-wrapper'>
+				<div role='summary-content' className='summary-content'>
+					<div role='summary-plan' className='summary-plan'>
 						<h4 className='plan first-letter'>
 							{type ? type : 'no type'} ({plan ? plan : 'no plan'}
 							) <br /> <span onClick={()=>onChangeStep(2)}>change</span>
 						</h4>
-						<span className='price'>
+						<span role='price' className='price'>
 							${price}/{plan === 'monthly' ? 'mo' : 'yr'}
 						</span>
 					</div>
 					<hr />
-					<div className='summary-details'>
+					<div role='summary-details' className='summary-details'>
 						{service && (
-							<div className='service'>
+							<div role='service' className='service'>
 								<span>Online service</span>
-								<span className='service-price'>
+								<span role='price' className='service-price'>
 									+${servicePrice}/
 									{plan === 'monthly' ? 'mo' : 'yr'}
 								</span>
@@ -546,9 +549,9 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 						)}
 
 						{storage && (
-							<div className='storage'>
+							<div role='storage' className='storage'>
 								<span>Large storage</span>
-								<span className='storage-price'>
+								<span role='price' className='storage-price'>
 									+${storagePrice}/
 									{plan === 'monthly' ? 'mo' : 'yr'}
 								</span>
@@ -556,9 +559,9 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 						)}
 
 						{profile && (
-							<div className='profile'>
+							<div role='profile' className='profile'>
 								<span>Customizable Profile</span>
-								<span className='profile-price'>
+								<span role='price' className='profile-price'>
 									+${profilePrice}/
 									{plan === 'monthly' ? 'mo' : 'yr'}
 								</span>
@@ -567,23 +570,23 @@ function StepFour({ onNextStep, onPrevStep, onChangeStep }) {
 					</div>
 				</div>
 
-				<div className='summary-total'>
+				<div role='summary-total' className='summary-total'>
 					<span className='total-text'>
 						Total{' '}
 						{plan === 'monthly' ? '(per month)' : '(per year)'}{' '}
 					</span>
-					<span className='total-price'>
+					<span role='total-price' className='total-price'>
 						${totalPrice}/{plan === 'monthly' ? 'mo' : 'yr'}
 					</span>
 				</div>
 			</div>
 
-			<div className="buttons">
-				<div className='cta'>
-					<span className='back-btn'>
+			<div role='buttons' className="buttons">
+				<div role='cta' className='cta'>
+					<span role='back' className='back-btn'>
 						<a onClick={onPrevStep}>Go Back</a>
 					</span>
-					<button onClick={onNextStep} className='confirm-btn'>
+					<button role='confirm' onClick={onNextStep} className='confirm-btn'>
 						Confirm
 					</button>
 				</div>
@@ -608,10 +611,10 @@ function StepFive() {
 
 	return (
 		<>
-			<div className='thank-you-wrapper'>
-        <div className="thank-you-icon">
+			<div role='thank-you-wrapper' className='thank-you-wrapper'>
+        		<div role='thank-you-image' className="thank-you-icon">
 				  <img src={iconThankYou} alt='icon-thank-you'/>
-        </div>
+        		</div>
 
 				<h2>Thank you!</h2>
 				<p>
@@ -627,10 +630,11 @@ function StepFive() {
 function Footer() {
   return (
 	<footer>
-    <div className="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
-        Coded by <a href="#">Dror Katzir</a>.
-		<div className="white-bg"></div>
+    <div role='attribution' className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> 
+
+        &nbsp; Coded by <a href="#">Dror Katzir</a>.
+		<div role='white-bg' className="white-bg"></div>
       </div>
 	</footer>
   )

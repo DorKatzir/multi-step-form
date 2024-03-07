@@ -137,7 +137,7 @@ body {
   justify-content: space-between;
   gap: 25px;
 }
-.main .content .text h2 {
+.main .content .text h1 {
   color: var(--Marine-blue);
   margin-block-end: 0.6rem;
   font-size: 2rem;
