@@ -69,7 +69,7 @@ export default function App() {
 // SIDEBAR ///////////////////////////////////////////////
 function Sidebar({stepCounter}) {
   return (
-		<div className='sidebar'>
+		<aside className='sidebar'>
 
 			<div className='step'>
 				<span className={ (stepCounter === 1) ? 'step_number active' : 'step_number' }>1</span>
@@ -103,7 +103,7 @@ function Sidebar({stepCounter}) {
 				</span>
 			</div>
 
-		</div>
+		</aside>
   )
 }
 
