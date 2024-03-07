@@ -43,7 +43,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - Frontend Tooling
 - [VSCode](https://code.visualstudio.com/) - Code Editor
-- [XD](https://code.visualstudio.com/) - Code Editor
+
 
 
 ## Author
