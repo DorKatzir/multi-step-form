@@ -33,7 +33,7 @@ export default function App() {
 
 				<div className='container'>
 				<Sidebar stepCounter={stepCounter} />
-				<div className='main'>
+				<main className='main'>
 					<div className='content'>
 
 						{ step === 1 
@@ -57,7 +57,7 @@ export default function App() {
 								: null }
 
 					</div>
-				</div>
+				</main>
 				</div>
 
 				<Footer />
